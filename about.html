@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About | Kelley Auto Glass</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --navy:#1a2e44; --blue:#2563a8; --sky:#e8f2ff; --amber:#f59e0b; --white:#fff; --gray:#f4f7fb; --text:#2d3748; --muted:#6b7a8d; }
+    body { font-family:'Nunito',sans-serif; color:var(--text); background:var(--white); }
+    nav { background:var(--white); box-shadow:0 2px 12px rgba(0,0,0,.08); position:sticky; top:0; z-index:100; padding:0 2rem; }
+    .nav-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:68px; }
+    .logo { font-size:1.3rem; font-weight:800; color:var(--navy); text-decoration:none; }
+    .logo span { color:var(--blue); }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { text-decoration:none; color:var(--text); font-weight:600; font-size:.95rem; transition:color .2s; }
+    .nav-links a:hover,.nav-links a.active { color:var(--blue); }
+    .nav-cta { background:var(--amber); color:var(--navy)!important; padding:.5rem 1.2rem; border-radius:50px; font-weight:700!important; transition:background .2s; }
+    .nav-cta:hover { background:#d97706; }
+    .page-hero { background:linear-gradient(135deg,var(--navy),#2a4a6e); color:white; padding:4rem 2rem; text-align:center; }
+    .page-hero h1 { font-family:'Lora',serif; font-size:clamp(2rem,4vw,3rem); margin-bottom:.8rem; }
+    .page-hero p { color:rgba(255,255,255,.8); font-size:1.1rem; max-width:520px; margin:0 auto; }
+    section { padding:5rem 2rem; }
+    .section-inner { max-width:1000px; margin:0 auto; }
+    .section-label { font-size:.8rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--blue); margin-bottom:.5rem; }
+    .section-title { font-family:'Lora',serif; font-size:clamp(1.8rem,3.5vw,2.4rem); color:var(--navy); margin-bottom:.8rem; }
+    .section-sub { color:var(--muted); font-size:1.05rem; line-height:1.7; max-width:520px; }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+    .about-text h2 { font-family:'Lora',serif; font-size:2.2rem; color:var(--navy); margin-bottom:1.2rem; line-height:1.3; }
+    .about-text p { color:var(--muted); line-height:1.8; font-size:1.05rem; margin-bottom:1rem; }
+    .about-visual { background:linear-gradient(135deg,var(--blue),var(--navy)); border-radius:24px; padding:3rem 2rem; color:white; text-align:center; }
+    .about-visual h3 { font-family:'Lora',serif; font-size:1.5rem; margin-bottom:.5rem; }
+    .about-visual p { color:rgba(255,255,255,.75); font-size:.95rem; line-height:1.6; }
+    .about-divider { width:48px; height:3px; background:var(--amber); border-radius:2px; margin:1.2rem auto; }
+    .values-bg { background:var(--gray); }
+    .values-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; margin-top:2.5rem; }
+    .value-card { background:var(--white); border-radius:16px; padding:2rem 1.5rem; }
+    .value-icon { width:48px; height:48px; background:var(--sky); border-radius:12px; display:flex; align-items:center; justify-content:center; margin-bottom:1rem; }
+    .value-icon svg { width:22px; height:22px; stroke:var(--blue); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+    .value-card h3 { font-size:1.05rem; font-weight:800; color:var(--navy); margin-bottom:.4rem; }
+    .value-card p { font-size:.9rem; color:var(--muted); line-height:1.6; }
+    .promise-section { text-align:center; }
+    .promise-section h2 { font-family:'Lora',serif; font-size:2.2rem; color:var(--navy); margin-bottom:1rem; }
+    .promise-section p { color:var(--muted); max-width:600px; margin:0 auto 1rem; line-height:1.8; font-size:1.05rem; }
+    .promise-quote { background:var(--sky); border-left:4px solid var(--blue); border-radius:0 12px 12px 0; padding:1.5rem 2rem; margin:2rem auto; max-width:600px; text-align:left; }
+    .promise-quote p { font-family:'Lora',serif; font-size:1.15rem; font-style:italic; color:var(--navy); margin:0; line-height:1.6; }
+    .btn-primary { background:var(--amber); color:var(--navy); padding:.85rem 2rem; border-radius:50px; font-weight:800; font-size:1rem; text-decoration:none; display:inline-block; }
+    .cta-banner { background:linear-gradient(135deg,var(--blue),var(--navy)); color:white; text-align:center; padding:4rem 2rem; }
+    .cta-banner h2 { font-family:'Lora',serif; font-size:2.2rem; margin-bottom:.8rem; }
+    .cta-banner p { color:rgba(255,255,255,.8); margin-bottom:2rem; font-size:1.05rem; }
+    .cta-phone { font-size:2rem; font-weight:800; color:var(--amber); text-decoration:none; display:block; margin-bottom:1rem; }
+    footer { background:var(--navy); color:rgba(255,255,255,.7); text-align:center; padding:2rem; font-size:.9rem; }
+    .footer-links { display:flex; justify-content:center; gap:2rem; margin-bottom:1rem; flex-wrap:wrap; }
+    .footer-links a { color:rgba(255,255,255,.7); text-decoration:none; font-size:.9rem; }
+    .footer-links a:hover { color:white; }
+    footer a { color:var(--amber); text-decoration:none; }
+    @media (max-width:768px) { .nav-links { display:none; } .about-grid { grid-template-columns:1fr; } .about-visual { order:-1; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Kelley <span>Auto Glass</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <h1>About Kelley Auto Glass</h1>
+  <p>A local business built on trust, quality work, and genuinely caring about our customers.</p>
+</div>
+
+<section>
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>We're Your Neighbors, Not a Call Center</h2>
+        <p>Kelley Auto Glass was founded with one simple idea: people deserve honest, high-quality auto glass service from someone they can actually talk to. No runaround, no upsells, no waiting on hold.</p>
+        <p>We're a local, owner-operated business serving the community with the kind of care and attention you'd expect from a trusted friend who happens to know everything about auto glass.</p>
+        <p>Every job we do — big or small — gets our full attention. Whether you have a tiny chip or a completely shattered windshield, we treat your vehicle like it's our own.</p>
+      </div>
+      <div class="about-visual">
+        <h3>Family-Owned &amp; Operated</h3>
+        <div class="about-divider"></div>
+        <p>We're a local business, not a franchise. When you call us, you're talking to the people who will actually do the work. That means accountability, consistency, and a team that genuinely cares about the outcome.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values-bg">
+  <div class="section-inner">
+    <div class="section-label">What We Stand For</div>
+    <h2 class="section-title">Our Values</h2>
+    <p class="section-sub">These aren't just words on a wall — they're how we show up every single day.</p>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h3>Honesty</h3>
+        <p>We tell you what you actually need — not what's most expensive. If a repair will do the job, we'll say so.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h3>Quality</h3>
+        <p>We use premium materials and proven techniques. Every job is backed by our satisfaction guarantee.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Speed</h3>
+        <p>Your time matters. We offer same-day service and most jobs are done in under an hour.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Communication</h3>
+        <p>You'll always know what's happening, how long it'll take, and exactly what it'll cost. No surprises.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="promise-section">
+  <div class="section-inner">
+    <h2>Our Promise to You</h2>
+    <p>We know you have options, and we don't take your business for granted. Every customer who calls us gets the same thing: our full effort, our honest advice, and a result we're proud to stand behind.</p>
+    <div class="promise-quote">
+      <p>"If you're not happy, we're not done. It's that simple."</p>
+    </div>
+    <p>That's the Kelley Auto Glass difference. Give us a call and experience it for yourself.</p>
+  </div>
+</section>
+
+<div class="cta-banner">
+  <h2>Let's Get Your Glass Fixed</h2>
+  <p>Reach out today for a free, friendly quote. No pressure, ever.</p>
+  <a href="tel:4156199393" class="cta-phone">(415) 619-9393</a>
+  <a href="contact.html" class="btn-primary">Request a Quote</a>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <p>© 2025 Kelley Auto Glass LLC &nbsp;&middot;&nbsp; <a href="tel:4156199393">(415) 619-9393</a> &nbsp;&middot;&nbsp; <a href="/cdn-cgi/l/email-protection#9ef5fbf2f2fbe7edffebeaf1f9f2ffededf2f2fddef9f3fff7f2b0fdf1f3"><span class="

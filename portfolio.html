@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio | Kelley Auto Glass</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --navy:#1a2e44; --blue:#2563a8; --sky:#e8f2ff; --amber:#f59e0b; --white:#fff; --gray:#f4f7fb; --text:#2d3748; --muted:#6b7a8d; }
+    body { font-family:'Nunito',sans-serif; color:var(--text); background:var(--white); }
+    nav { background:var(--white); box-shadow:0 2px 12px rgba(0,0,0,.08); position:sticky; top:0; z-index:100; padding:0 2rem; }
+    .nav-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:68px; }
+    .logo { font-size:1.3rem; font-weight:800; color:var(--navy); text-decoration:none; }
+    .logo span { color:var(--blue); }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { text-decoration:none; color:var(--text); font-weight:600; font-size:.95rem; transition:color .2s; }
+    .nav-links a:hover,.nav-links a.active { color:var(--blue); }
+    .nav-cta { background:var(--amber); color:var(--navy)!important; padding:.5rem 1.2rem; border-radius:50px; font-weight:700!important; transition:background .2s; }
+    .nav-cta:hover { background:#d97706; }
+    .page-hero { background:linear-gradient(135deg,var(--navy),#2a4a6e); color:white; padding:4rem 2rem; text-align:center; }
+    .page-hero h1 { font-family:'Lora',serif; font-size:clamp(2rem,4vw,3rem); margin-bottom:.8rem; }
+    .page-hero p { color:rgba(255,255,255,.8); font-size:1.1rem; max-width:520px; margin:0 auto; }
+    section { padding:5rem 2rem; }
+    .section-inner { max-width:1100px; margin:0 auto; }
+    .section-label { font-size:.8rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--blue); margin-bottom:.5rem; }
+    .section-title { font-family:'Lora',serif; font-size:clamp(1.8rem,3.5vw,2.4rem); color:var(--navy); margin-bottom:.8rem; }
+    .section-sub { color:var(--muted); font-size:1.05rem; line-height:1.7; max-width:540px; }
+    .portfolio-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.5rem; margin-top:3rem; }
+    .portfolio-card { border-radius:16px; overflow:hidden; box-shadow:0 2px 16px rgba(0,0,0,.08); transition:transform .2s,box-shadow .2s; background:var(--white); }
+    .portfolio-card:hover { transform:translateY(-4px); box-shadow:0 10px 32px rgba(0,0,0,.12); }
+    .portfolio-img { width:100%; height:200px; background:linear-gradient(135deg,#dce9f7,#b8d4f0); display:flex; align-items:center; justify-content:center; }
+    .portfolio-img svg { width:52px; height:52px; stroke:#2563a8; fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; opacity:.6; }
+    .portfolio-info { padding:1.2rem 1.5rem; }
+    .portfolio-info h3 { font-weight:800; color:var(--navy); margin-bottom:.3rem; }
+    .portfolio-info p { font-size:.9rem; color:var(--muted); line-height:1.5; }
+    .ptag { display:inline-block; background:var(--sky); color:var(--blue); border-radius:50px; padding:.2rem .7rem; font-size:.78rem; font-weight:700; margin-top:.5rem; }
+    .photo-notice { background:var(--sky); border:2px dashed #93c5fd; border-radius:16px; padding:2.5rem; text-align:center; margin-top:3rem; }
+    .photo-notice h3 { color:var(--navy); font-size:1.2rem; margin-bottom:.5rem; }
+    .photo-notice p { color:var(--muted); font-size:.95rem; line-height:1.6; }
+    .reviews-bg { background:var(--gray); }
+    .reviews-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; margin-top:2.5rem; }
+    .review-card { background:var(--white); border-radius:16px; padding:1.8rem; box-shadow:0 2px 12px rgba(0,0,0,.05); }
+    .stars { color:var(--amber); font-size:1rem; letter-spacing:.1em; margin-bottom:.8rem; font-weight:700; }
+    .review-text { font-size:.95rem; color:var(--text); line-height:1.7; font-style:italic; margin-bottom:1rem; font-family:'Lora',serif; }
+    .reviewer { font-weight:800; font-size:.9rem; color:var(--navy); }
+    .review-type { font-size:.8rem; color:var(--muted); }
+    .btn-primary { background:var(--amber); color:var(--navy); padding:.85rem 2rem; border-radius:50px; font-weight:800; font-size:1rem; text-decoration:none; display:inline-block; }
+    .cta-banner { background:linear-gradient(135deg,var(--blue),var(--navy)); color:white; text-align:center; padding:4rem 2rem; }
+    .cta-banner h2 { font-family:'Lora',serif; font-size:2.2rem; margin-bottom:.8rem; }
+    .cta-banner p { color:rgba(255,255,255,.8); margin-bottom:2rem; font-size:1.05rem; }
+    .cta-phone { font-size:2rem; font-weight:800; color:var(--amber); text-decoration:none; display:block; margin-bottom:1rem; }
+    footer { background:var(--navy); color:rgba(255,255,255,.7); text-align:center; padding:2rem; font-size:.9rem; }
+    .footer-links { display:flex; justify-content:center; gap:2rem; margin-bottom:1rem; flex-wrap:wrap; }
+    .footer-links a { color:rgba(255,255,255,.7); text-decoration:none; font-size:.9rem; }
+    .footer-links a:hover { color:white; }
+    footer a { color:var(--amber); text-decoration:none; }
+    @media (max-width:768px) { .nav-links { display:none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Kelley <span>Auto Glass</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html" class="active">Portfolio</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <h1>Our Work</h1>
+  <p>Real jobs, real results. See what we've done for customers just like you.</p>
+</div>
+
+<section>
+  <div class="section-inner">
+    <div class="section-label">Recent Jobs</div>
+    <h2 class="section-title">Before &amp; After</h2>
+    <p class="section-sub">Every vehicle we work on gets the same care and attention. Here's a sample of our recent work.</p>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <div class="portfolio-img"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20"/></svg></div>
+        <div class="portfolio-info">
+          <h3>2021 Honda Accord</h3>
+          <p>Full windshield replacement after road debris damage. OEM glass, same-day service.</p>
+          <span class="ptag">Windshield Replacement</span>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-img"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg></div>
+        <div class="portfolio-info">
+          <h3>2019 Toyota Camry</h3>
+          <p>Rock chip repair — caught early before the crack could spread. Covered by insurance.</p>
+          <span class="ptag">Chip Repair</span>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-img"><svg viewBox="0 0 24 24"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/><rect x="9" y="11" width="14" height="10" rx="1"/></svg></div>
+        <div class="portfolio-info">
+          <h3>2020 Ford F-150</h3>
+          <p>Driver side door glass replacement after break-in. Back on the road same afternoon.</p>
+          <span class="ptag">Side Window</span>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-img"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div class="portfolio-info">
+          <h3>2022 Chevrolet Silverado</h3>
+          <p>Mobile windshield replacement at customer's home. No shop visit needed.</p>
+          <span class="ptag">Mobile Service</span>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-img"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="portfolio-info">
+          <h3>2023 Tesla Model 3</h3>
+          <p>Windshield replacement with full ADAS camera recalibration. Advanced tech, handled right.</p>
+          <span class="ptag">ADAS Recalibration</span>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-img"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="2" y1="14" x2="22" y2="14"/></svg></div>
+        <div class="portfolio-info">
+          <h3>2018 BMW 3 Series</h3>
+          <p>Rear windshield replacement. Factory-fit glass, perfect seal, no leaks.</p>
+          <span class="ptag">Rear Windshield</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="photo-notice">
+      <h3>Photo Gallery Coming Soon</h3>
+      <p>We're building out our photo gallery with real before-and-after shots from our jobs. Check back soon — or call us and we'll walk you through our work directly.</p>
+    </div>
+  </div>
+</section>
+
+<section class="reviews-bg">
+  <div class="section-inner">
+    <div class="section-label">Customer Reviews</div>
+    <h2 class="section-title">What People Are Saying</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Called in the morning, they were at my house by noon. Windshield replaced in under an hour. Incredibly professional and fair price."</p>
+        <div class="reviewer">Maria T.</div>
+        <div class="review-type">Windshield Replacement</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"I had a chip in my windshield and was worried about cost. They handled everything with my insurance — zero out of pocket. Super easy."</p>
+        <div class="reviewer">James R.</div>
+        <div class="review-type">Chip Repair</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Someone broke into my car overnight. Kelley Auto Glass came out the next morning and fixed the window. Honest pricing, great work."</p>
+        <div class="reviewer">Sandra L.</div>
+        <div class="review-type">Side Window Replacement</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-banner">
+  <h2>Ready to Join Our Happy Customers?</h2>
+  <p>Get a free quote today — no commitment, no pressure.</p>
+  <a href="tel:4156199393" class="cta-phone">(415) 619-9393</a>
+  <a href="contact.html" class="btn-primary">Request a Quote</a>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <p>© 2025 Kelley Auto Glass LLC &nbsp;&middot;&nbsp; <a href="tel:4156199393">(415) 619-9393</a> &nbsp;&middot;&nbsp; <a href="/cdn-cgi/l/email-protection#6209070e0e071b110317160d050e0311110e0e0122050f030b0e4c010d0f"><span class="
