@@ -100,7 +100,7 @@
 
 <div class="page-hero">
   <h1>Get In Touch</h1>
-  <p>Call, email, or fill out the form — we'll get back to you fast with a free quote.</p>
+  <p>Call, email, or fill out the form - we'll get back to you fast with a free quote.</p>
 </div>
 
 <section>
@@ -109,7 +109,7 @@
 
       <div class="contact-info">
         <h2>We'd Love to Hear From You</h2>
-        <p>Whether you need an urgent repair or just want to ask a question, we're here and happy to help. No robots, no runaround — just real people.</p>
+        <p>Whether you need an urgent repair or just want to ask a question, we're here and happy to help. No robots, no runaround - just real people.</p>
 
         <div class="contact-method">
           <div class="cmethod-icon">
@@ -128,7 +128,7 @@
           </div>
           <div class="cmethod-text">
             <h4>Email Us</h4>
-            <a href="/cdn-cgi/l/email-protection#244f414848415d574551504b4348455757484847644349454d480a474b49"><span class="__cf_email__" data-cfemail="d0bbb5bcbcb5a9a3b1a5a4bfb7bcb1a3a3bcbcb390b7bdb1b9bcfeb3bfbd">[email&#160;protected]</span></a>
+            <a href="mailto:kelleysautoglassllc@gmail.com">kelleysautoglassllc@gmail.com</a>
             <p>We reply within a few hours</p>
           </div>
         </div>
@@ -202,7 +202,7 @@
                 <option>Side Window Replacement</option>
                 <option>Rear Windshield</option>
                 <option>Mobile Service</option>
-                <option>Not Sure — Need Advice</option>
+                <option>Not Sure - Need Advice</option>
               </select>
             </div>
           </div>
@@ -212,17 +212,17 @@
           </div>
 
           <!-- Hidden field to identify the source -->
-          <input type="hidden" name="_subject" value="New Quote Request — Kelley Auto Glass Website" />
+          <input type="hidden" name="_subject" value="New Quote Request - Kelley Auto Glass Website" />
 
           <button type="submit" class="submit-btn" id="submitBtn">Send Quote Request</button>
-          <p class="form-note">Prefer to talk? Call us at <a href="tel:4156199393">(415) 619-9393</a> — no forms needed.</p>
+          <p class="form-note">Prefer to talk? Call us at <a href="tel:4156199393">(415) 619-9393</a> - no forms needed.</p>
         </form>
 
         <div class="form-feedback success" id="successMsg">
-          Your request has been sent. We'll be in touch shortly — usually within a few hours.
+          Your request has been sent. We'll be in touch shortly - usually within a few hours.
         </div>
         <div class="form-feedback error" id="errorMsg">
-          Something went wrong. Please call us at (415) 619-9393 or email <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b6ddd3dadad3cfc5d7c3c2d9d1dad7c5c5dadad5f6d1dbd7dfda98d5d9db">[email&#160;protected]</a> directly.
+          Something went wrong. Please call us at (415) 619-9393 or email kelleysautoglassllc@gmail.com directly.
         </div>
       </div>
 
@@ -238,10 +238,10 @@
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </div>
-  <p>© 2025 Kelley Auto Glass LLC &nbsp;&middot;&nbsp; <a href="tel:4156199393">(415) 619-9393</a> &nbsp;&middot;&nbsp; <a href="/cdn-cgi/l/email-protection#1b707e77777e62687a6e6f747c777a68687777785b7c767a727735787476"><span class="__cf_email__" data-cfemail="5a313f36363f23293b2f2e353d363b29293636391a3d373b333674393537">[email&#160;protected]</span></a></p>
+  <p>© 2025 Kelley Auto Glass LLC &nbsp;&middot;&nbsp; <a href="tel:4156199393">(415) 619-9393</a> &nbsp;&middot;&nbsp; <a href="mailto:kelleysautoglassllc@gmail.com">kelleysautoglassllc@gmail.com</a></p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   const form = document.getElementById('quoteForm');
   const submitBtn = document.getElementById('submitBtn');
   const successMsg = document.getElementById('successMsg');
@@ -250,7 +250,6 @@
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
 
-    // Basic validation
     const name = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
     const email = document.getElementById('email').value.trim();
@@ -264,4 +263,26 @@
 
     try {
       const data = new FormData(form);
-      const response = await fe
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        form.style.display = 'none';
+        document.getElementById('setupNotice') && (document.getElementById('setupNotice').style.display = 'none');
+        successMsg.style.display = 'block';
+      } else {
+        throw new Error('Server error');
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Quote Request';
+      errorMsg.style.display = 'block';
+    }
+  });
+</script>
+
+</body>
+</html>
