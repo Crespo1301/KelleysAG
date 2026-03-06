@@ -3,52 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Services | Kelley Auto Glass</title>
+  <title>Services | Kelley's Auto Glass</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-    :root { --navy:#1a2e44; --blue:#2563a8; --sky:#e8f2ff; --amber:#f59e0b; --white:#fff; --gray:#f4f7fb; --text:#2d3748; --muted:#6b7a8d; }
+    :root { --orange:#f97316; --orange-dark:#ea6c0a; --orange-light:#fff7ed; --black:#111; --charcoal:#1e1e1e; --white:#fff; --gray:#f5f5f5; --text:#1e1e1e; --muted:#6b7280; }
     body { font-family:'Nunito',sans-serif; color:var(--text); background:var(--white); }
-    nav { background:var(--white); box-shadow:0 2px 12px rgba(0,0,0,.08); position:sticky; top:0; z-index:100; padding:0 2rem; }
-    .nav-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:68px; }
-    .logo { font-size:1.3rem; font-weight:800; color:var(--navy); text-decoration:none; }
-    .logo span { color:var(--blue); }
+    nav { background:var(--black); position:sticky; top:0; z-index:100; padding:0 2rem; box-shadow:0 2px 16px rgba(0,0,0,.5); }
+    .nav-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:70px; }
+    .nav-logo { height:50px; width:auto; display:block; }
     .nav-links { display:flex; gap:2rem; list-style:none; }
-    .nav-links a { text-decoration:none; color:var(--text); font-weight:600; font-size:.95rem; transition:color .2s; }
-    .nav-links a:hover,.nav-links a.active { color:var(--blue); }
-    .nav-cta { background:var(--amber); color:var(--navy)!important; padding:.5rem 1.2rem; border-radius:50px; font-weight:700!important; transition:background .2s; }
-    .nav-cta:hover { background:#d97706; }
-    .page-hero { background:linear-gradient(135deg,var(--navy),#2a4a6e); color:white; padding:4rem 2rem; text-align:center; }
-    .page-hero h1 { font-family:'Lora',serif; font-size:clamp(2rem,4vw,3rem); margin-bottom:.8rem; }
-    .page-hero p { color:rgba(255,255,255,.8); font-size:1.1rem; max-width:520px; margin:0 auto; }
+    .nav-links a { text-decoration:none; color:rgba(255,255,255,.8); font-weight:600; font-size:.95rem; transition:color .2s; }
+    .nav-links a:hover,.nav-links a.active { color:var(--orange); }
+    .nav-cta { background:var(--orange)!important; color:var(--white)!important; padding:.5rem 1.3rem; border-radius:50px; font-weight:700!important; }
+    .nav-cta:hover { background:var(--orange-dark)!important; }
+    .page-hero { background:var(--black); color:white; padding:4rem 2rem; text-align:center; position:relative; overflow:hidden; }
+    .page-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 70% 50%,rgba(249,115,22,.12) 0%,transparent 65%); pointer-events:none; }
+    .page-hero h1 { font-family:'Lora',serif; font-size:clamp(2rem,4vw,3rem); margin-bottom:.8rem; position:relative; }
+    .page-hero p { color:rgba(255,255,255,.75); font-size:1.1rem; max-width:520px; margin:0 auto; position:relative; }
     section { padding:5rem 2rem; }
     .section-inner { max-width:1100px; margin:0 auto; }
-    .section-label { font-size:.8rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--blue); margin-bottom:.5rem; }
-    .section-title { font-family:'Lora',serif; font-size:clamp(1.8rem,3.5vw,2.4rem); color:var(--navy); margin-bottom:.8rem; }
+    .section-label { font-size:.8rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--orange); margin-bottom:.5rem; }
+    .section-title { font-family:'Lora',serif; font-size:clamp(1.8rem,3.5vw,2.4rem); color:var(--text); margin-bottom:.8rem; }
     .section-sub { color:var(--muted); font-size:1.05rem; line-height:1.7; max-width:520px; }
+    .btn-primary { background:var(--orange); color:var(--white); padding:.85rem 2rem; border-radius:50px; font-weight:800; font-size:1rem; text-decoration:none; display:inline-block; transition:background .2s; }
+    .btn-primary:hover { background:var(--orange-dark); }
+    .btn-dark { background:var(--black); color:var(--white); padding:.85rem 2rem; border-radius:50px; font-weight:800; font-size:1rem; text-decoration:none; display:inline-block; }
     .services-full { display:flex; flex-direction:column; gap:2rem; }
-    .service-row { display:grid; grid-template-columns:72px 1fr; gap:2rem; background:var(--gray); border-radius:20px; padding:2.5rem; align-items:start; transition:box-shadow .2s; }
-    .service-row:hover { box-shadow:0 6px 28px rgba(0,0,0,.08); }
-    .svc-row-icon { width:64px; height:64px; background:linear-gradient(135deg,var(--blue),var(--navy)); border-radius:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-    .svc-row-icon svg { width:28px; height:28px; stroke:white; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-    .service-row h3 { font-size:1.3rem; font-weight:800; color:var(--navy); margin-bottom:.6rem; }
+    .service-row { display:grid; grid-template-columns:72px 1fr; gap:2rem; background:var(--gray); border-radius:20px; padding:2.5rem; align-items:start; transition:box-shadow .2s; border-left:4px solid transparent; }
+    .service-row:hover { box-shadow:0 6px 28px rgba(0,0,0,.08); border-left-color:var(--orange); }
+    .svc-row-icon { width:64px; height:64px; background:var(--black); border-radius:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .svc-row-icon svg { width:28px; height:28px; stroke:var(--orange); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+    .service-row h3 { font-size:1.3rem; font-weight:800; color:var(--text); margin-bottom:.6rem; }
     .service-row p { color:var(--muted); line-height:1.7; margin-bottom:1rem; }
     .service-tags { display:flex; gap:.5rem; flex-wrap:wrap; }
-    .tag { background:var(--sky); color:var(--blue); border-radius:50px; padding:.25rem .8rem; font-size:.8rem; font-weight:700; }
-    .insurance-box { background:var(--sky); border-radius:20px; padding:3rem 2rem; text-align:center; margin-top:1rem; }
-    .insurance-box h2 { font-family:'Lora',serif; color:var(--navy); font-size:1.9rem; margin-bottom:.8rem; }
-    .insurance-box p { color:var(--muted); max-width:500px; margin:0 auto 1.5rem; line-height:1.7; }
-    .btn-primary { background:var(--amber); color:var(--navy); padding:.85rem 2rem; border-radius:50px; font-weight:800; font-size:1rem; text-decoration:none; display:inline-block; }
-    .cta-banner { background:linear-gradient(135deg,var(--blue),var(--navy)); color:white; text-align:center; padding:4rem 2rem; }
+    .tag { background:var(--orange-light); color:var(--orange-dark); border-radius:50px; padding:.25rem .8rem; font-size:.8rem; font-weight:700; }
+    .insurance-box { background:var(--black); border-radius:20px; padding:3rem 2rem; text-align:center; margin-top:1rem; position:relative; overflow:hidden; }
+    .insurance-box::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at top right,rgba(249,115,22,.15) 0%,transparent 60%); }
+    .insurance-box h2 { font-family:'Lora',serif; color:var(--white); font-size:1.9rem; margin-bottom:.8rem; position:relative; }
+    .insurance-box p { color:rgba(255,255,255,.65); max-width:500px; margin:0 auto 1.5rem; line-height:1.7; position:relative; }
+    .cta-banner { background:var(--orange); color:white; text-align:center; padding:4rem 2rem; }
     .cta-banner h2 { font-family:'Lora',serif; font-size:2.2rem; margin-bottom:.8rem; }
-    .cta-banner p { color:rgba(255,255,255,.8); margin-bottom:2rem; font-size:1.05rem; }
-    .cta-phone { font-size:2rem; font-weight:800; color:var(--amber); text-decoration:none; display:block; margin-bottom:1rem; }
-    footer { background:var(--navy); color:rgba(255,255,255,.7); text-align:center; padding:2rem; font-size:.9rem; }
+    .cta-banner p { color:rgba(255,255,255,.85); margin-bottom:2rem; font-size:1.05rem; }
+    .cta-phone { font-size:2rem; font-weight:800; color:var(--white); text-decoration:none; display:block; margin-bottom:1rem; }
+    footer { background:var(--charcoal); color:rgba(255,255,255,.6); text-align:center; padding:2.5rem 2rem; font-size:.9rem; }
     .footer-links { display:flex; justify-content:center; gap:2rem; margin-bottom:1rem; flex-wrap:wrap; }
-    .footer-links a { color:rgba(255,255,255,.7); text-decoration:none; font-size:.9rem; }
-    .footer-links a:hover { color:white; }
-    footer a { color:var(--amber); text-decoration:none; }
+    .footer-links a { color:rgba(255,255,255,.6); text-decoration:none; transition:color .2s; }
+    .footer-links a:hover { color:var(--orange); }
+    footer a { color:var(--orange); text-decoration:none; }
     @media (max-width:768px) { .nav-links { display:none; } .service-row { grid-template-columns:1fr; } }
   </style>
 </head>
@@ -56,7 +59,7 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="logo">Kelley <span>Auto Glass</span></a>
+    <a href="index.html"><img src="logo.png" alt="Kelley's Auto Glass" class="nav-logo"></a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="services.html" class="active">Services</a></li>
@@ -81,12 +84,7 @@
         <div>
           <h3>Windshield Replacement</h3>
           <p>A damaged windshield is more than an eyesore - it's a safety hazard. We replace windshields on all vehicle makes and models using OEM-quality glass that meets or exceeds factory standards. Our technicians ensure a watertight seal and proper ADAS recalibration when applicable.</p>
-          <div class="service-tags">
-            <span class="tag">All Makes &amp; Models</span>
-            <span class="tag">OEM-Quality Glass</span>
-            <span class="tag">Same-Day Available</span>
-            <span class="tag">Warranty Included</span>
-          </div>
+          <div class="service-tags"><span class="tag">All Makes &amp; Models</span><span class="tag">OEM-Quality Glass</span><span class="tag">Same-Day Available</span><span class="tag">Warranty Included</span></div>
         </div>
       </div>
 
@@ -95,11 +93,7 @@
         <div>
           <h3>Chip &amp; Crack Repair</h3>
           <p>Small chips and cracks don't always require a full replacement. Our repair process uses advanced resin injection to fill and seal damage, restoring structural integrity and visibility. Fast, affordable, and often covered by insurance at no cost to you.</p>
-          <div class="service-tags">
-            <span class="tag">30-Minute Service</span>
-            <span class="tag">Often Free With Insurance</span>
-            <span class="tag">Stops Spreading</span>
-          </div>
+          <div class="service-tags"><span class="tag">30-Minute Service</span><span class="tag">Often Free With Insurance</span><span class="tag">Stops Spreading</span></div>
         </div>
       </div>
 
@@ -108,12 +102,7 @@
         <div>
           <h3>Side &amp; Rear Window Replacement</h3>
           <p>Broken door glass, quarter windows, rear windshields - we handle it all. Whether from an accident, break-in, or weather damage, we'll get your vehicle sealed back up and looking factory-fresh.</p>
-          <div class="service-tags">
-            <span class="tag">Door Glass</span>
-            <span class="tag">Quarter Windows</span>
-            <span class="tag">Rear Windshield</span>
-            <span class="tag">Vent Glass</span>
-          </div>
+          <div class="service-tags"><span class="tag">Door Glass</span><span class="tag">Quarter Windows</span><span class="tag">Rear Windshield</span><span class="tag">Vent Glass</span></div>
         </div>
       </div>
 
@@ -122,11 +111,7 @@
         <div>
           <h3>Mobile Service</h3>
           <p>We come to you - at your home, your workplace, or wherever your car is parked. No need to arrange a ride or sit in a waiting room. Just tell us where you are, and we'll bring everything needed to get the job done on-site.</p>
-          <div class="service-tags">
-            <span class="tag">We Come to You</span>
-            <span class="tag">Home or Office</span>
-            <span class="tag">No Wait Time</span>
-          </div>
+          <div class="service-tags"><span class="tag">We Come to You</span><span class="tag">Home or Office</span><span class="tag">No Wait Time</span></div>
         </div>
       </div>
 
@@ -135,11 +120,7 @@
         <div>
           <h3>ADAS Recalibration</h3>
           <p>Modern vehicles use cameras and sensors mounted behind the windshield for safety features like lane departure warnings and automatic braking. After a windshield replacement, these systems need to be recalibrated. We offer both static and dynamic recalibration to keep your safety tech working correctly.</p>
-          <div class="service-tags">
-            <span class="tag">Camera Calibration</span>
-            <span class="tag">Safety System Reset</span>
-            <span class="tag">Modern Vehicles</span>
-          </div>
+          <div class="service-tags"><span class="tag">Camera Calibration</span><span class="tag">Safety System Reset</span><span class="tag">Modern Vehicles</span></div>
         </div>
       </div>
 
@@ -148,7 +129,7 @@
     <div class="insurance-box" style="margin-top:3rem;">
       <h2>We Work With Your Insurance</h2>
       <p>Most windshield repairs and replacements are covered by comprehensive auto insurance - often with zero out-of-pocket cost. We'll handle the insurance claim process for you from start to finish.</p>
-      <a href="contact.html" class="btn-primary">Check Your Coverage</a>
+      <a href="contact.html" class="btn-primary" style="position:relative;">Check Your Coverage</a>
     </div>
   </div>
 </section>
@@ -157,7 +138,7 @@
   <h2>Not Sure What You Need?</h2>
   <p>Give us a call and we'll walk you through it - no pressure, no jargon.</p>
   <a href="tel:4156199393" class="cta-phone">(415) 619-9393</a>
-  <a href="contact.html" class="btn-primary">Get a Free Quote</a>
+  <a href="contact.html" class="btn-dark">Get a Free Quote</a>
 </div>
 
 <footer>
@@ -168,7 +149,7 @@
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </div>
-  <p>© 2025 Kelley Auto Glass LLC &nbsp;&middot;&nbsp; <a href="tel:4156199393">(415) 619-9393</a> &nbsp;&middot;&nbsp; <a href="mailto:kelleysautoglassllc@gmail.com">kelleysautoglassllc@gmail.com</a></p>
+  <p>© 2025 Kelley's Auto Glass LLC &nbsp;&middot;&nbsp; <a href="tel:4156199393">(415) 619-9393</a> &nbsp;&middot;&nbsp; <a href="mailto:kelleysautoglassllc@gmail.com">kelleysautoglassllc@gmail.com</a></p>
 </footer>
 
 </body>

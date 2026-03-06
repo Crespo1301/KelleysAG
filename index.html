@@ -3,92 +3,97 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kelley Auto Glass | Windshield Replacement &amp; Repair</title>
+  <title>Kelley's Auto Glass | Windshield Replacement &amp; Repair</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --navy:#1a2e44; --blue:#2563a8; --sky:#e8f2ff; --amber:#f59e0b; --white:#fff; --gray:#f4f7fb; --text:#2d3748; --muted:#6b7a8d; }
-    html { scroll-behavior: smooth; }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --orange:#f97316; --orange-dark:#ea6c0a; --orange-light:#fff7ed; --black:#111; --charcoal:#1e1e1e; --white:#fff; --gray:#f5f5f5; --text:#1e1e1e; --muted:#6b7280; }
+    html { scroll-behavior:smooth; }
     body { font-family:'Nunito',sans-serif; color:var(--text); background:var(--white); }
 
-    nav { background:var(--white); box-shadow:0 2px 12px rgba(0,0,0,.08); position:sticky; top:0; z-index:100; padding:0 2rem; }
-    .nav-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:68px; }
-    .logo { font-size:1.3rem; font-weight:800; color:var(--navy); text-decoration:none; }
-    .logo span { color:var(--blue); }
+    nav { background:var(--black); position:sticky; top:0; z-index:100; padding:0 2rem; box-shadow:0 2px 16px rgba(0,0,0,.5); }
+    .nav-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:70px; }
+    .nav-logo { height:50px; width:auto; display:block; }
     .nav-links { display:flex; gap:2rem; list-style:none; }
-    .nav-links a { text-decoration:none; color:var(--text); font-weight:600; font-size:.95rem; transition:color .2s; }
-    .nav-links a:hover,.nav-links a.active { color:var(--blue); }
-    .nav-cta { background:var(--amber); color:var(--navy)!important; padding:.5rem 1.2rem; border-radius:50px; font-weight:700!important; transition:background .2s; }
-    .nav-cta:hover { background:#d97706; }
+    .nav-links a { text-decoration:none; color:rgba(255,255,255,.8); font-weight:600; font-size:.95rem; transition:color .2s; }
+    .nav-links a:hover,.nav-links a.active { color:var(--orange); }
+    .nav-cta { background:var(--orange)!important; color:var(--white)!important; padding:.5rem 1.3rem; border-radius:50px; font-weight:700!important; transition:background .2s!important; }
+    .nav-cta:hover { background:var(--orange-dark)!important; }
 
-    .hero { background:linear-gradient(135deg,var(--navy) 0%,#2a4a6e 100%); color:var(--white); padding:6rem 2rem 5rem; text-align:center; position:relative; overflow:hidden; }
-    .hero::before { content:''; position:absolute; width:600px; height:600px; background:radial-gradient(circle,rgba(37,99,168,.3) 0%,transparent 70%); top:-100px; right:-100px; border-radius:50%; }
-    .hero-badge { display:inline-block; background:rgba(245,158,11,.2); color:var(--amber); border:1px solid var(--amber); border-radius:50px; padding:.3rem 1rem; font-size:.85rem; font-weight:700; letter-spacing:.05em; margin-bottom:1.5rem; }
+    .hero { background:var(--black); color:var(--white); padding:6rem 2rem 5rem; text-align:center; position:relative; overflow:hidden; }
+    .hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 70% 50%,rgba(249,115,22,.15) 0%,transparent 65%); pointer-events:none; }
+    .hero-badge { display:inline-block; background:rgba(249,115,22,.15); color:var(--orange); border:1px solid rgba(249,115,22,.5); border-radius:50px; padding:.35rem 1.1rem; font-size:.85rem; font-weight:700; letter-spacing:.05em; margin-bottom:1.5rem; }
     .hero h1 { font-family:'Lora',serif; font-size:clamp(2.2rem,5vw,3.6rem); font-weight:600; line-height:1.2; margin-bottom:1.2rem; max-width:700px; margin-left:auto; margin-right:auto; }
-    .hero p { font-size:1.15rem; color:rgba(255,255,255,.8); max-width:520px; margin:0 auto 2.5rem; line-height:1.7; }
+    .hero h1 span { color:var(--orange); }
+    .hero p { font-size:1.15rem; color:rgba(255,255,255,.75); max-width:520px; margin:0 auto 2.5rem; line-height:1.7; }
     .hero-buttons { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
-    .btn-primary { background:var(--amber); color:var(--navy); padding:.85rem 2rem; border-radius:50px; font-weight:800; font-size:1rem; text-decoration:none; transition:transform .2s,box-shadow .2s; box-shadow:0 4px 20px rgba(245,158,11,.4); display:inline-block; }
-    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(245,158,11,.5); }
-    .btn-secondary { background:rgba(255,255,255,.1); color:var(--white); padding:.85rem 2rem; border-radius:50px; font-weight:700; font-size:1rem; text-decoration:none; border:1px solid rgba(255,255,255,.3); transition:background .2s; }
-    .btn-secondary:hover { background:rgba(255,255,255,.18); }
+    .btn-primary { background:var(--orange); color:var(--white); padding:.85rem 2rem; border-radius:50px; font-weight:800; font-size:1rem; text-decoration:none; transition:transform .2s,box-shadow .2s; box-shadow:0 4px 20px rgba(249,115,22,.4); display:inline-block; }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(249,115,22,.5); background:var(--orange-dark); }
+    .btn-secondary { background:rgba(255,255,255,.08); color:var(--white); padding:.85rem 2rem; border-radius:50px; font-weight:700; font-size:1rem; text-decoration:none; border:1px solid rgba(255,255,255,.2); transition:background .2s; display:inline-block; }
+    .btn-secondary:hover { background:rgba(255,255,255,.15); }
 
-    .trust-bar { background:var(--sky); padding:1.2rem 2rem; }
+    .trust-bar { background:var(--orange); padding:1rem 2rem; }
     .trust-bar-inner { max-width:900px; margin:0 auto; display:flex; justify-content:center; gap:2.5rem; flex-wrap:wrap; }
-    .trust-item { display:flex; align-items:center; gap:.6rem; font-weight:700; font-size:.9rem; color:var(--navy); }
-    .trust-dot { width:8px; height:8px; background:var(--blue); border-radius:50%; flex-shrink:0; }
+    .trust-item { display:flex; align-items:center; gap:.6rem; font-weight:700; font-size:.9rem; color:var(--white); }
+    .trust-dot { width:6px; height:6px; background:rgba(255,255,255,.6); border-radius:50%; flex-shrink:0; }
 
     section { padding:5rem 2rem; }
     .section-inner { max-width:1100px; margin:0 auto; }
-    .section-label { font-size:.8rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--blue); margin-bottom:.5rem; }
-    .section-title { font-family:'Lora',serif; font-size:clamp(1.8rem,3.5vw,2.6rem); color:var(--navy); margin-bottom:1rem; line-height:1.25; }
+    .section-label { font-size:.8rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--orange); margin-bottom:.5rem; }
+    .section-title { font-family:'Lora',serif; font-size:clamp(1.8rem,3.5vw,2.6rem); color:var(--text); margin-bottom:1rem; line-height:1.25; }
     .section-sub { color:var(--muted); font-size:1.05rem; line-height:1.7; max-width:540px; }
 
     .services-bg { background:var(--gray); }
     .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.5rem; margin-top:3rem; }
-    .service-card { background:var(--white); border-radius:16px; padding:2rem 1.5rem; text-align:center; box-shadow:0 2px 12px rgba(0,0,0,.06); transition:transform .2s,box-shadow .2s; }
-    .service-card:hover { transform:translateY(-4px); box-shadow:0 8px 28px rgba(0,0,0,.1); }
-    .svc-icon { width:56px; height:56px; background:var(--sky); border-radius:14px; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; }
-    .svc-icon svg { width:26px; height:26px; stroke:var(--blue); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-    .service-card h3 { font-size:1.1rem; font-weight:800; color:var(--navy); margin-bottom:.5rem; }
+    .service-card { background:var(--white); border-radius:16px; padding:2rem 1.5rem; text-align:center; box-shadow:0 2px 12px rgba(0,0,0,.06); transition:transform .2s,box-shadow .2s,border-top-color .2s; border-top:3px solid transparent; }
+    .service-card:hover { transform:translateY(-4px); box-shadow:0 8px 28px rgba(0,0,0,.1); border-top-color:var(--orange); }
+    .svc-icon { width:56px; height:56px; background:var(--orange-light); border-radius:14px; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; }
+    .svc-icon svg { width:26px; height:26px; stroke:var(--orange); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+    .service-card h3 { font-size:1.1rem; font-weight:800; color:var(--text); margin-bottom:.5rem; }
     .service-card p { font-size:.9rem; color:var(--muted); line-height:1.6; }
 
-    .why-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; margin-top:1rem; }
+    .why-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
     .why-list { list-style:none; margin-top:2rem; display:flex; flex-direction:column; gap:1.2rem; }
     .why-item { display:flex; gap:1rem; align-items:flex-start; }
-    .why-icon { background:var(--sky); border-radius:10px; width:42px; height:42px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-    .why-icon svg { width:20px; height:20px; stroke:var(--blue); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-    .why-item h4 { font-weight:800; color:var(--navy); margin-bottom:.2rem; }
+    .why-icon { background:var(--orange-light); border-radius:10px; width:42px; height:42px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .why-icon svg { width:20px; height:20px; stroke:var(--orange); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+    .why-item h4 { font-weight:800; color:var(--text); margin-bottom:.2rem; }
     .why-item p { font-size:.9rem; color:var(--muted); line-height:1.5; }
-    .why-visual { background:linear-gradient(135deg,var(--navy),#2a4a6e); border-radius:20px; padding:3rem 2rem; text-align:center; color:white; }
-    .stat-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:1.5rem; }
-    .stat-box { background:rgba(255,255,255,.1); border-radius:12px; padding:1.5rem 1rem; }
-    .stat-num { font-size:2.2rem; font-weight:800; color:var(--amber); }
-    .stat-label { font-size:.85rem; color:rgba(255,255,255,.7); margin-top:.3rem; }
+    .why-visual { background:var(--black); border-radius:20px; padding:3rem 2rem; text-align:center; color:white; position:relative; overflow:hidden; }
+    .why-visual::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at top right,rgba(249,115,22,.2) 0%,transparent 60%); }
+    .stat-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:1.5rem; position:relative; }
+    .stat-box { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:1.5rem 1rem; }
+    .stat-num { font-size:2.2rem; font-weight:800; color:var(--orange); }
+    .stat-label { font-size:.85rem; color:rgba(255,255,255,.6); margin-top:.3rem; }
 
-    .cta-banner { background:linear-gradient(135deg,var(--blue),var(--navy)); color:white; text-align:center; padding:4rem 2rem; }
+    .areas-bg { background:var(--black); }
+    .areas-bg .section-title { color:var(--white); }
+    .areas-bg .section-sub { color:rgba(255,255,255,.55); }
+    .areas-grid { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2rem; }
+    .area-pill { background:rgba(249,115,22,.12); border:1px solid rgba(249,115,22,.3); color:rgba(255,255,255,.9); border-radius:50px; padding:.45rem 1.1rem; font-size:.9rem; font-weight:700; }
+
+    .cta-banner { background:var(--orange); color:white; text-align:center; padding:4rem 2rem; }
     .cta-banner h2 { font-family:'Lora',serif; font-size:2.2rem; margin-bottom:.8rem; }
-    .cta-banner p { color:rgba(255,255,255,.8); margin-bottom:2rem; font-size:1.05rem; }
-    .cta-phone { font-size:2rem; font-weight:800; color:var(--amber); text-decoration:none; display:block; margin-bottom:1rem; }
+    .cta-banner p { color:rgba(255,255,255,.85); margin-bottom:2rem; font-size:1.05rem; }
+    .cta-phone { font-size:2rem; font-weight:800; color:var(--white); text-decoration:none; display:block; margin-bottom:1rem; }
+    .btn-dark { background:var(--black); color:var(--white); padding:.85rem 2rem; border-radius:50px; font-weight:800; font-size:1rem; text-decoration:none; display:inline-block; transition:background .2s; }
+    .btn-dark:hover { background:#333; }
 
-    footer { background:var(--navy); color:rgba(255,255,255,.7); text-align:center; padding:2rem; font-size:.9rem; }
+    footer { background:var(--charcoal); color:rgba(255,255,255,.6); text-align:center; padding:2.5rem 2rem; font-size:.9rem; }
     .footer-links { display:flex; justify-content:center; gap:2rem; margin-bottom:1rem; flex-wrap:wrap; }
-    .footer-links a { color:rgba(255,255,255,.7); text-decoration:none; font-size:.9rem; }
-    .footer-links a:hover { color:white; }
-    footer a { color:var(--amber); text-decoration:none; }
+    .footer-links a { color:rgba(255,255,255,.6); text-decoration:none; font-size:.9rem; transition:color .2s; }
+    .footer-links a:hover { color:var(--orange); }
+    footer a { color:var(--orange); text-decoration:none; }
 
-    @media (max-width:768px) {
-      .nav-links { display:none; }
-      .why-grid { grid-template-columns:1fr; }
-      .why-visual { order:-1; }
-    }
+    @media (max-width:768px) { .nav-links { display:none; } .why-grid { grid-template-columns:1fr; } .why-visual { order:-1; } }
   </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="logo">Kelley <span>Auto Glass</span></a>
+    <a href="index.html"><img src="logo.png" alt="Kelley's Auto Glass" class="nav-logo"></a>
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="services.html">Services</a></li>
@@ -101,8 +106,8 @@
 
 <section class="hero">
   <div class="hero-badge">Trusted Local Auto Glass Experts</div>
-  <h1>Clear Views, Safe Drives. Every Time.</h1>
-  <p>Fast, friendly windshield replacement and repair you can count on. We come to you. Home, work, or anywhere in between.</p>
+  <h1>Clear Views, <span>Safe Drives</span> - Every Time</h1>
+  <p>Fast, friendly windshield replacement and repair you can count on. We come to you - home, work, or anywhere in between.</p>
   <div class="hero-buttons">
     <a href="contact.html" class="btn-primary">Get a Free Quote</a>
     <a href="services.html" class="btn-secondary">Our Services</a>
@@ -137,7 +142,7 @@
       <div class="service-card">
         <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/><rect x="9" y="11" width="14" height="10" rx="1"/></svg></div>
         <h3>Side &amp; Rear Windows</h3>
-        <p>All vehicle makes and models. Door glass, quarter windows, vent glass, we have you covered.</p>
+        <p>All vehicle makes and models. Door glass, quarter windows, vent glass - we have you covered.</p>
       </div>
       <div class="service-card">
         <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
@@ -146,7 +151,7 @@
       </div>
     </div>
     <div style="text-align:center;margin-top:2.5rem;">
-      <a href="services.html" class="btn-primary" style="color:var(--navy);">See All Services</a>
+      <a href="services.html" class="btn-primary">See All Services</a>
     </div>
   </div>
 </section>
@@ -177,8 +182,8 @@
         </ul>
       </div>
       <div class="why-visual">
-        <p style="font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:.5rem;">Our Track Record</p>
-        <h3 style="font-family:'Lora',serif;font-size:1.6rem;margin-bottom:.2rem;">Customers Love Us</h3>
+        <p style="font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.5rem;position:relative;">Our Track Record</p>
+        <h3 style="font-family:'Lora',serif;font-size:1.6rem;margin-bottom:.2rem;position:relative;">Customers Love Us</h3>
         <div class="stat-grid">
           <div class="stat-box"><div class="stat-num">500+</div><div class="stat-label">Happy Customers</div></div>
           <div class="stat-box"><div class="stat-num">5-Star</div><div class="stat-label">Avg. Rating</div></div>
@@ -190,11 +195,34 @@
   </div>
 </section>
 
+<section class="areas-bg">
+  <div class="section-inner">
+    <div class="section-label">Where We Work</div>
+    <h2 class="section-title">Service Areas</h2>
+    <p class="section-sub">We proudly serve the greater San Francisco Bay Area, including:</p>
+    <div class="areas-grid">
+      <span class="area-pill">San Francisco</span>
+      <span class="area-pill">Daly City</span>
+      <span class="area-pill">South San Francisco</span>
+      <span class="area-pill">San Bruno</span>
+      <span class="area-pill">Pacifica</span>
+      <span class="area-pill">Half Moon Bay</span>
+      <span class="area-pill">San Mateo</span>
+      <span class="area-pill">Foster City</span>
+      <span class="area-pill">Redwood City</span>
+      <span class="area-pill">Tiburon</span>
+      <span class="area-pill">San Rafael</span>
+      <span class="area-pill">Marin</span>
+    </div>
+    <p style="color:rgba(255,255,255,.45);font-size:.9rem;margin-top:1.5rem;">Not on the list? Give us a call - we may still be able to help.</p>
+  </div>
+</section>
+
 <div class="cta-banner">
   <h2>Ready to Get Started?</h2>
   <p>Call or email us today for a free, no-obligation quote.</p>
   <a href="tel:4156199393" class="cta-phone">(415) 619-9393</a>
-  <a href="contact.html" class="btn-primary">Request a Quote Online</a>
+  <a href="contact.html" class="btn-dark">Request a Quote Online</a>
 </div>
 
 <footer>
@@ -205,7 +233,7 @@
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </div>
-  <p>© 2025 Kelley Auto Glass LLC &nbsp;&middot;&nbsp; <a href="tel:4156199393">(415) 619-9393</a> &nbsp;&middot;&nbsp; <a href="mailto:kelleysautoglassllc@gmail.com">kelleysautoglassllc@gmail.com</a></p>
+  <p>© 2025 Kelley's Auto Glass LLC &nbsp;&middot;&nbsp; <a href="tel:4156199393">(415) 619-9393</a> &nbsp;&middot;&nbsp; <a href="mailto:kelleysautoglassllc@gmail.com">kelleysautoglassllc@gmail.com</a></p>
 </footer>
 
 </body>

@@ -3,83 +3,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact | Kelley Auto Glass</title>
+  <title>Contact | Kelley's Auto Glass</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-    :root { --navy:#1a2e44; --blue:#2563a8; --sky:#e8f2ff; --amber:#f59e0b; --white:#fff; --gray:#f4f7fb; --text:#2d3748; --muted:#6b7a8d; }
+    :root { --orange:#f97316; --orange-dark:#ea6c0a; --orange-light:#fff7ed; --black:#111; --charcoal:#1e1e1e; --white:#fff; --gray:#f5f5f5; --text:#1e1e1e; --muted:#6b7280; }
     body { font-family:'Nunito',sans-serif; color:var(--text); background:var(--white); }
-    nav { background:var(--white); box-shadow:0 2px 12px rgba(0,0,0,.08); position:sticky; top:0; z-index:100; padding:0 2rem; }
-    .nav-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:68px; }
-    .logo { font-size:1.3rem; font-weight:800; color:var(--navy); text-decoration:none; }
-    .logo span { color:var(--blue); }
+    nav { background:var(--black); position:sticky; top:0; z-index:100; padding:0 2rem; box-shadow:0 2px 16px rgba(0,0,0,.5); }
+    .nav-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:70px; }
+    .nav-logo { height:50px; width:auto; display:block; }
     .nav-links { display:flex; gap:2rem; list-style:none; }
-    .nav-links a { text-decoration:none; color:var(--text); font-weight:600; font-size:.95rem; transition:color .2s; }
-    .nav-links a:hover,.nav-links a.active { color:var(--blue); }
-    .nav-cta { background:var(--amber); color:var(--navy)!important; padding:.5rem 1.2rem; border-radius:50px; font-weight:700!important; transition:background .2s; }
-    .nav-cta:hover { background:#d97706; }
-    .page-hero { background:linear-gradient(135deg,var(--navy),#2a4a6e); color:white; padding:4rem 2rem; text-align:center; }
-    .page-hero h1 { font-family:'Lora',serif; font-size:clamp(2rem,4vw,3rem); margin-bottom:.8rem; }
-    .page-hero p { color:rgba(255,255,255,.8); font-size:1.1rem; max-width:520px; margin:0 auto; }
+    .nav-links a { text-decoration:none; color:rgba(255,255,255,.8); font-weight:600; font-size:.95rem; transition:color .2s; }
+    .nav-links a:hover,.nav-links a.active { color:var(--orange); }
+    .nav-cta { background:var(--orange)!important; color:var(--white)!important; padding:.5rem 1.3rem; border-radius:50px; font-weight:700!important; }
+    .nav-cta:hover { background:var(--orange-dark)!important; }
+    .page-hero { background:var(--black); color:white; padding:4rem 2rem; text-align:center; position:relative; overflow:hidden; }
+    .page-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 70% 50%,rgba(249,115,22,.12) 0%,transparent 65%); pointer-events:none; }
+    .page-hero h1 { font-family:'Lora',serif; font-size:clamp(2rem,4vw,3rem); margin-bottom:.8rem; position:relative; }
+    .page-hero p { color:rgba(255,255,255,.75); font-size:1.1rem; max-width:520px; margin:0 auto; position:relative; }
     section { padding:5rem 2rem; }
     .section-inner { max-width:1000px; margin:0 auto; }
-    .contact-grid { display:grid; grid-template-columns:1fr 1.6fr; gap:3.5rem; align-items:start; }
 
-    /* Contact info sidebar */
-    .contact-info h2 { font-family:'Lora',serif; font-size:1.8rem; color:var(--navy); margin-bottom:1rem; }
+    .contact-grid { display:grid; grid-template-columns:1fr 1.6fr; gap:3.5rem; align-items:start; }
+    .contact-info h2 { font-family:'Lora',serif; font-size:1.8rem; color:var(--text); margin-bottom:1rem; }
     .contact-info > p { color:var(--muted); line-height:1.7; margin-bottom:2rem; }
     .contact-method { display:flex; align-items:flex-start; gap:1rem; margin-bottom:1.5rem; }
-    .cmethod-icon { background:var(--sky); width:46px; height:46px; border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-    .cmethod-icon svg { width:20px; height:20px; stroke:var(--blue); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-    .cmethod-text h4 { font-weight:800; color:var(--navy); font-size:.95rem; margin-bottom:.2rem; }
-    .cmethod-text a { color:var(--blue); text-decoration:none; font-size:1rem; font-weight:700; }
+    .cmethod-icon { background:var(--orange-light); width:46px; height:46px; border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .cmethod-icon svg { width:20px; height:20px; stroke:var(--orange); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+    .cmethod-text h4 { font-weight:800; color:var(--text); font-size:.95rem; margin-bottom:.2rem; }
+    .cmethod-text a { color:var(--orange); text-decoration:none; font-size:1rem; font-weight:700; }
     .cmethod-text a:hover { text-decoration:underline; }
     .cmethod-text p { color:var(--muted); font-size:.85rem; margin:0; line-height:1.5; }
 
-    /* Form */
     .contact-form-wrap { background:var(--gray); border-radius:20px; padding:2.5rem; }
-    .contact-form-wrap h2 { font-family:'Lora',serif; color:var(--navy); font-size:1.6rem; margin-bottom:.4rem; }
+    .contact-form-wrap h2 { font-family:'Lora',serif; color:var(--text); font-size:1.6rem; margin-bottom:.4rem; }
     .contact-form-wrap > p { color:var(--muted); font-size:.95rem; margin-bottom:1.8rem; }
     .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
     .form-group { margin-bottom:1.2rem; }
-    .form-group label { display:block; font-weight:700; font-size:.88rem; color:var(--navy); margin-bottom:.4rem; text-transform:uppercase; letter-spacing:.04em; }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width:100%; padding:.75rem 1rem; border:2px solid #e2e8f0; border-radius:10px;
-      font-family:'Nunito',sans-serif; font-size:.95rem; color:var(--text);
-      background:var(--white); transition:border-color .2s; outline:none;
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus { border-color:var(--blue); }
+    .form-group label { display:block; font-weight:700; font-size:.88rem; color:var(--text); margin-bottom:.4rem; text-transform:uppercase; letter-spacing:.04em; }
+    .form-group input,.form-group select,.form-group textarea { width:100%; padding:.75rem 1rem; border:2px solid #e5e7eb; border-radius:10px; font-family:'Nunito',sans-serif; font-size:.95rem; color:var(--text); background:var(--white); transition:border-color .2s; outline:none; }
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus { border-color:var(--orange); }
     .form-group textarea { height:120px; resize:vertical; }
-    .submit-btn {
-      width:100%; background:var(--amber); color:var(--navy); border:none;
-      padding:1rem; border-radius:50px; font-family:'Nunito',sans-serif;
-      font-size:1rem; font-weight:800; cursor:pointer;
-      transition:background .2s, transform .2s; margin-top:.5rem;
-    }
-    .submit-btn:hover { background:#d97706; transform:translateY(-1px); }
+    .submit-btn { width:100%; background:var(--orange); color:var(--white); border:none; padding:1rem; border-radius:50px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:800; cursor:pointer; transition:background .2s,transform .2s; margin-top:.5rem; }
+    .submit-btn:hover { background:var(--orange-dark); transform:translateY(-1px); }
     .submit-btn:disabled { opacity:.6; cursor:not-allowed; transform:none; }
     .form-note { font-size:.82rem; color:var(--muted); text-align:center; margin-top:.8rem; }
-    .form-note a { color:var(--blue); }
-
-    /* Success / Error states */
+    .form-note a { color:var(--orange); }
     .form-feedback { display:none; border-radius:12px; padding:1.2rem 1.5rem; text-align:center; font-weight:700; margin-top:1rem; }
     .form-feedback.success { background:#d1fae5; border:2px solid #34d399; color:#065f46; }
     .form-feedback.error { background:#fee2e2; border:2px solid #f87171; color:#991b1b; }
-
-    /* Formspree notice */
     .setup-notice { background:#fffbeb; border:1px solid #fcd34d; border-radius:12px; padding:1.2rem 1.5rem; margin-bottom:1.5rem; font-size:.88rem; color:#92400e; line-height:1.6; }
     .setup-notice strong { display:block; margin-bottom:.3rem; color:#78350f; }
 
-    footer { background:var(--navy); color:rgba(255,255,255,.7); text-align:center; padding:2rem; font-size:.9rem; }
+    footer { background:var(--charcoal); color:rgba(255,255,255,.6); text-align:center; padding:2.5rem 2rem; font-size:.9rem; }
     .footer-links { display:flex; justify-content:center; gap:2rem; margin-bottom:1rem; flex-wrap:wrap; }
-    .footer-links a { color:rgba(255,255,255,.7); text-decoration:none; font-size:.9rem; }
-    .footer-links a:hover { color:white; }
-    footer a { color:var(--amber); text-decoration:none; }
+    .footer-links a { color:rgba(255,255,255,.6); text-decoration:none; transition:color .2s; }
+    .footer-links a:hover { color:var(--orange); }
+    footer a { color:var(--orange); text-decoration:none; }
     @media (max-width:768px) { .nav-links { display:none; } .contact-grid { grid-template-columns:1fr; } .form-row { grid-template-columns:1fr; } }
   </style>
 </head>
@@ -87,7 +68,7 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="logo">Kelley <span>Auto Glass</span></a>
+    <a href="index.html"><img src="logo.png" alt="Kelley's Auto Glass" class="nav-logo"></a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="services.html">Services</a></li>
@@ -110,89 +91,41 @@
       <div class="contact-info">
         <h2>We'd Love to Hear From You</h2>
         <p>Whether you need an urgent repair or just want to ask a question, we're here and happy to help. No robots, no runaround - just real people.</p>
-
         <div class="contact-method">
-          <div class="cmethod-icon">
-            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.86-.86a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          </div>
-          <div class="cmethod-text">
-            <h4>Call or Text</h4>
-            <a href="tel:4156199393">(415) 619-9393</a>
-            <p>Available Mon–Sat, 8am–6pm</p>
-          </div>
+          <div class="cmethod-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.86-.86a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div class="cmethod-text"><h4>Call or Text</h4><a href="tel:4156199393">(415) 619-9393</a><p>Available Mon-Sat, 8am-6pm</p></div>
         </div>
-
         <div class="contact-method">
-          <div class="cmethod-icon">
-            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          <div class="cmethod-text">
-            <h4>Email Us</h4>
-            <a href="mailto:kelleysautoglassllc@gmail.com">kelleysautoglassllc@gmail.com</a>
-            <p>We reply within a few hours</p>
-          </div>
+          <div class="cmethod-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div class="cmethod-text"><h4>Email Us</h4><a href="mailto:kelleysautoglassllc@gmail.com">kelleysautoglassllc@gmail.com</a><p>We reply within a few hours</p></div>
         </div>
-
         <div class="contact-method">
-          <div class="cmethod-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </div>
-          <div class="cmethod-text">
-            <h4>Mobile Service</h4>
-            <p style="font-size:.95rem;color:var(--text);font-size:.9rem;">We come to you. Let us know your location and we'll schedule a time that works.</p>
-          </div>
+          <div class="cmethod-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="cmethod-text"><h4>Mobile Service</h4><p style="font-size:.9rem;color:var(--text);">We come to you. Let us know your location and we'll schedule a time that works.</p></div>
         </div>
-
         <div class="contact-method">
-          <div class="cmethod-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div class="cmethod-text">
-            <h4>Insurance Claims</h4>
-            <p style="font-size:.9rem;color:var(--text);">We handle the paperwork. Just give us your insurance info and we'll take care of the rest.</p>
-          </div>
+          <div class="cmethod-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="cmethod-text"><h4>Insurance Claims</h4><p style="font-size:.9rem;color:var(--text);">We handle the paperwork. Just give us your insurance info and we'll take care of the rest.</p></div>
         </div>
       </div>
 
-      <!-- QUOTE FORM -->
       <div class="contact-form-wrap">
         <h2>Request a Free Quote</h2>
         <p>Fill out the form and we'll follow up within a few hours.</p>
 
-        <!--
-          SETUP INSTRUCTIONS (remove this block after setup):
-          1. Go to https://formspree.io and sign up for a free account
-          2. Create a new form and connect it to kelleysautoglassllc@gmail.com
-          3. Formspree gives you a unique form ID that looks like: xyzabcde
-          4. Replace YOUR_FORMSPREE_ID below with that ID
-          Example: action="https://formspree.io/f/xyzabcde"
-        -->
-
         <div class="setup-notice" id="setupNotice">
           <strong>One-time setup required:</strong>
-          To activate this form, create a free account at <a href="https://formspree.io" target="_blank" style="color:#92400e;">formspree.io</a>, connect it to your Gmail, and replace <code>YOUR_FORMSPREE_ID</code> in the HTML with your form ID. Takes about 2 minutes.
+          Create a free account at <a href="https://formspree.io" target="_blank" style="color:#92400e;">formspree.io</a>, connect it to your Gmail, and replace <code>YOUR_FORMSPREE_ID</code> in this file with your form ID. Takes about 2 minutes.
         </div>
 
         <form id="quoteForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
           <div class="form-row">
-            <div class="form-group">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" name="name" placeholder="John Smith" required />
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" />
-            </div>
+            <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="John Smith" required /></div>
+            <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" /></div>
           </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="you@email.com" />
-          </div>
+          <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="you@email.com" /></div>
           <div class="form-row">
-            <div class="form-group">
-              <label for="vehicle">Vehicle</label>
-              <input type="text" id="vehicle" name="vehicle" placeholder="e.g. 2021 Honda Accord" />
-            </div>
+            <div class="form-group"><label for="vehicle">Vehicle</label><input type="text" id="vehicle" name="vehicle" placeholder="e.g. 2021 Honda Accord" /></div>
             <div class="form-group">
               <label for="service">Service Needed</label>
               <select id="service" name="service">
@@ -206,24 +139,14 @@
               </select>
             </div>
           </div>
-          <div class="form-group">
-            <label for="message">Additional Details (Optional)</label>
-            <textarea id="message" name="message" placeholder="Describe the damage, your location, preferred timing, or any other details..."></textarea>
-          </div>
-
-          <!-- Hidden field to identify the source -->
-          <input type="hidden" name="_subject" value="New Quote Request - Kelley Auto Glass Website" />
-
+          <div class="form-group"><label for="message">Additional Details (Optional)</label><textarea id="message" name="message" placeholder="Describe the damage, your location, preferred timing, or any other details..."></textarea></div>
+          <input type="hidden" name="_subject" value="New Quote Request - Kelley's Auto Glass Website" />
           <button type="submit" class="submit-btn" id="submitBtn">Send Quote Request</button>
           <p class="form-note">Prefer to talk? Call us at <a href="tel:4156199393">(415) 619-9393</a> - no forms needed.</p>
         </form>
 
-        <div class="form-feedback success" id="successMsg">
-          Your request has been sent. We'll be in touch shortly - usually within a few hours.
-        </div>
-        <div class="form-feedback error" id="errorMsg">
-          Something went wrong. Please call us at (415) 619-9393 or email kelleysautoglassllc@gmail.com directly.
-        </div>
+        <div class="form-feedback success" id="successMsg">Your request has been sent. We'll be in touch shortly - usually within a few hours.</div>
+        <div class="form-feedback error" id="errorMsg">Something went wrong. Please call us at (415) 619-9393 or email kelleysautoglassllc@gmail.com directly.</div>
       </div>
 
     </div>
@@ -238,7 +161,7 @@
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </div>
-  <p>© 2025 Kelley Auto Glass LLC &nbsp;&middot;&nbsp; <a href="tel:4156199393">(415) 619-9393</a> &nbsp;&middot;&nbsp; <a href="mailto:kelleysautoglassllc@gmail.com">kelleysautoglassllc@gmail.com</a></p>
+  <p>© 2025 Kelley's Auto Glass LLC &nbsp;&middot;&nbsp; <a href="tel:4156199393">(415) 619-9393</a> &nbsp;&middot;&nbsp; <a href="mailto:kelleysautoglassllc@gmail.com">kelleysautoglassllc@gmail.com</a></p>
 </footer>
 
 <script>
@@ -249,7 +172,6 @@
 
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
-
     const name = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
     const email = document.getElementById('email').value.trim();
@@ -257,21 +179,18 @@
       alert('Please enter your name and at least a phone number or email address.');
       return;
     }
-
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
-
     try {
-      const data = new FormData(form);
       const response = await fetch(form.action, {
         method: 'POST',
-        body: data,
+        body: new FormData(form),
         headers: { 'Accept': 'application/json' }
       });
-
       if (response.ok) {
         form.style.display = 'none';
-        document.getElementById('setupNotice') && (document.getElementById('setupNotice').style.display = 'none');
+        const notice = document.getElementById('setupNotice');
+        if (notice) notice.style.display = 'none';
         successMsg.style.display = 'block';
       } else {
         throw new Error('Server error');
