@@ -35,18 +35,51 @@
     .portfolio-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.5rem; margin-top:3rem; }
     .portfolio-card { border-radius:16px; overflow:hidden; box-shadow:0 2px 16px rgba(0,0,0,.08); transition:transform .2s,box-shadow .2s; background:var(--white); }
     .portfolio-card:hover { transform:translateY(-4px); box-shadow:0 10px 32px rgba(0,0,0,.12); }
-    .portfolio-img { width:100%; height:200px; background:var(--black); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
-    .portfolio-img::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at center,rgba(249,115,22,.15) 0%,transparent 70%); }
-    .portfolio-img svg { width:52px; height:52px; stroke:var(--orange); fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; opacity:.7; position:relative; }
+
+    /* ─────────────────────────────────────────────────────────
+       JOB PHOTO PLACEHOLDERS
+       Each card's .portfolio-img loads from the images/ folder.
+       To update a card: drop your photo into images/ and update
+       the background-image path below.
+
+       Recommended naming:
+         images/job-01.jpg  (Honda Accord windshield)
+         images/job-02.jpg  (Toyota Camry chip)
+         images/job-03.jpg  (Ford F-150 door glass)
+         images/job-04.jpg  (Chevrolet Silverado mobile)
+         images/job-05.jpg  (Tesla Model 3)
+         images/job-06.jpg  (BMW 3 Series rear)
+
+       Best results: landscape 800x500px, well-lit, close-up
+       of the glass work or the vehicle with work visible.
+    ───────────────────────────────────────────────────────── */
+    .portfolio-img {
+      width:100%;
+      height:210px;
+      background-color:var(--black);
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      position:relative;
+    }
+    .portfolio-img::after {
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,.45) 0%, transparent 60%);
+    }
+    /* Individual job photos */
+    .job-01 { background-image:url('images/job-01.jpg'); }
+    .job-02 { background-image:url('images/job-02.jpg'); }
+    .job-03 { background-image:url('images/job-03.jpg'); }
+    .job-04 { background-image:url('images/job-04.jpg'); }
+    .job-05 { background-image:url('images/job-05.jpg'); }
+    .job-06 { background-image:url('images/job-06.jpg'); }
+
     .portfolio-info { padding:1.2rem 1.5rem; }
     .portfolio-info h3 { font-weight:800; color:var(--text); margin-bottom:.3rem; }
     .portfolio-info p { font-size:.9rem; color:var(--muted); line-height:1.5; }
     .ptag { display:inline-block; background:var(--orange-light); color:var(--orange-dark); border-radius:50px; padding:.2rem .7rem; font-size:.78rem; font-weight:700; margin-top:.5rem; }
-
-    .photo-notice { background:var(--black); border-radius:16px; padding:2.5rem; text-align:center; margin-top:3rem; position:relative; overflow:hidden; }
-    .photo-notice::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at top right,rgba(249,115,22,.1) 0%,transparent 60%); }
-    .photo-notice h3 { color:var(--white); font-size:1.2rem; margin-bottom:.5rem; position:relative; }
-    .photo-notice p { color:rgba(255,255,255,.55); font-size:.95rem; line-height:1.6; position:relative; }
 
     .reviews-bg { background:var(--gray); }
     .reviews-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; margin-top:2.5rem; }
@@ -55,6 +88,15 @@
     .review-text { font-size:.95rem; color:var(--text); line-height:1.7; font-style:italic; margin-bottom:1rem; font-family:'Lora',serif; }
     .reviewer { font-weight:800; font-size:.9rem; color:var(--text); }
     .review-type { font-size:.8rem; color:var(--muted); }
+
+    /* ─────────────────────────────────────────────────────────
+       REVIEWS PLACEHOLDER NOTICE
+       Delete this block once real customer reviews are added.
+    ───────────────────────────────────────────────────────── */
+    .reviews-placeholder { background:var(--black); border-radius:16px; padding:2.5rem; text-align:center; position:relative; overflow:hidden; }
+    .reviews-placeholder::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at top right,rgba(249,115,22,.1) 0%,transparent 60%); }
+    .reviews-placeholder h3 { color:var(--white); font-size:1.2rem; margin-bottom:.5rem; position:relative; }
+    .reviews-placeholder p { color:rgba(255,255,255,.5); font-size:.95rem; line-height:1.6; position:relative; }
 
     .cta-banner { background:var(--orange); color:white; text-align:center; padding:4rem 2rem; }
     .cta-banner h2 { font-family:'Lora',serif; font-size:2.2rem; margin-bottom:.8rem; }
@@ -85,45 +127,83 @@
 
 <div class="page-hero">
   <h1>Our Work</h1>
-  <p>Real jobs, real results. See what we've done for customers just like you.</p>
+  <p>Real jobs, real results. See what we have done for customers just like you.</p>
 </div>
 
 <section>
   <div class="section-inner">
     <div class="section-label">Recent Jobs</div>
     <h2 class="section-title">Before &amp; After</h2>
-    <p class="section-sub">Every vehicle we work on gets the same care and attention. Here's a sample of our recent work.</p>
+    <p class="section-sub">Every vehicle we work on gets the same care and attention. Here is a sample of our recent work.</p>
 
+    <!--
+      PORTFOLIO CARDS
+      Each card uses a CSS class (job-01 through job-06) to load its photo.
+      Drop your images into the images/ folder with matching filenames,
+      and they will appear automatically. No other code changes needed.
+    -->
     <div class="portfolio-grid">
-      <div class="portfolio-card">
-        <div class="portfolio-img"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20"/></svg></div>
-        <div class="portfolio-info"><h3>2021 Honda Accord</h3><p>Full windshield replacement after road debris damage. OEM glass, same-day service.</p><span class="ptag">Windshield Replacement</span></div>
-      </div>
-      <div class="portfolio-card">
-        <div class="portfolio-img"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg></div>
-        <div class="portfolio-info"><h3>2019 Toyota Camry</h3><p>Rock chip repair - caught early before the crack could spread. Covered by insurance.</p><span class="ptag">Chip Repair</span></div>
-      </div>
-      <div class="portfolio-card">
-        <div class="portfolio-img"><svg viewBox="0 0 24 24"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/><rect x="9" y="11" width="14" height="10" rx="1"/></svg></div>
-        <div class="portfolio-info"><h3>2020 Ford F-150</h3><p>Driver side door glass replacement after break-in. Back on the road same afternoon.</p><span class="ptag">Side Window</span></div>
-      </div>
-      <div class="portfolio-card">
-        <div class="portfolio-img"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-        <div class="portfolio-info"><h3>2022 Chevrolet Silverado</h3><p>Mobile windshield replacement at customer's home. No shop visit needed.</p><span class="ptag">Mobile Service</span></div>
-      </div>
-      <div class="portfolio-card">
-        <div class="portfolio-img"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div class="portfolio-info"><h3>2023 Tesla Model 3</h3><p>Full windshield replacement. Precision fit, factory seal, tested and ready to drive.</p><span class="ptag">Windshield Replacement</span></div>
-      </div>
-      <div class="portfolio-card">
-        <div class="portfolio-img"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="2" y1="14" x2="22" y2="14"/></svg></div>
-        <div class="portfolio-info"><h3>2018 BMW 3 Series</h3><p>Rear windshield replacement. Factory-fit glass, perfect seal, no leaks.</p><span class="ptag">Rear Windshield</span></div>
-      </div>
-    </div>
 
-    <div class="photo-notice">
-      <h3>Photo Gallery Coming Soon</h3>
-      <p>We're building out our gallery with real before-and-after shots from our jobs. Check back soon.</p>
+      <div class="portfolio-card">
+        <!-- Photo: images/job-01.jpg -->
+        <div class="portfolio-img job-01"></div>
+        <div class="portfolio-info">
+          <h3>2021 Honda Accord</h3>
+          <p>Full windshield replacement after road debris damage. OEM glass, same-day service.</p>
+          <span class="ptag">Windshield Replacement</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <!-- Photo: images/job-02.jpg -->
+        <div class="portfolio-img job-02"></div>
+        <div class="portfolio-info">
+          <h3>2019 Toyota Camry</h3>
+          <p>Rock chip repair caught early before the crack could spread. Fast turnaround, clean result.</p>
+          <span class="ptag">Chip Repair</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <!-- Photo: images/job-03.jpg -->
+        <div class="portfolio-img job-03"></div>
+        <div class="portfolio-info">
+          <h3>2020 Ford F-150</h3>
+          <p>Driver side door glass replacement after break-in. Back on the road same afternoon.</p>
+          <span class="ptag">Side Window</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <!-- Photo: images/job-04.jpg -->
+        <div class="portfolio-img job-04"></div>
+        <div class="portfolio-info">
+          <h3>2022 Chevrolet Silverado</h3>
+          <p>Mobile windshield replacement at the customer's home. No shop visit needed.</p>
+          <span class="ptag">Mobile Service</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <!-- Photo: images/job-05.jpg -->
+        <div class="portfolio-img job-05"></div>
+        <div class="portfolio-info">
+          <h3>2023 Tesla Model 3</h3>
+          <p>Full windshield replacement. Precision fit, factory seal, tested and ready to drive.</p>
+          <span class="ptag">Windshield Replacement</span>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <!-- Photo: images/job-06.jpg -->
+        <div class="portfolio-img job-06"></div>
+        <div class="portfolio-info">
+          <h3>2018 BMW 3 Series</h3>
+          <p>Rear windshield replacement. Factory-fit glass, perfect seal, no leaks.</p>
+          <span class="ptag">Rear Windshield</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -132,29 +212,38 @@
   <div class="section-inner">
     <div class="section-label">Customer Reviews</div>
     <h2 class="section-title">What People Are Saying</h2>
+
+    <!--
+      REVIEWS
+      Replace the placeholder cards below with real customer reviews
+      as they come in. Each card follows the same HTML structure.
+      Delete the .reviews-placeholder block when you have real reviews ready.
+    -->
+
+    <div class="reviews-placeholder" style="margin-top:2rem;">
+      <h3>Real Reviews Coming Soon</h3>
+      <p>Customer reviews will appear here. Send Milo the review text and he will add them to the site.</p>
+    </div>
+
+    <!-- Uncomment and fill in once real reviews are received:
+
     <div class="reviews-grid">
       <div class="review-card">
         <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="review-text">"Called in the morning, they were at my house by noon. Windshield replaced in under an hour. Incredibly professional and fair price."</p>
-        <div class="reviewer">Maria T.</div><div class="review-type">Windshield Replacement</div>
-      </div>
-      <div class="review-card">
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="review-text">"I had a chip in my windshield and was worried about cost. They handled everything with my insurance - zero out of pocket. Super easy."</p>
-        <div class="reviewer">James R.</div><div class="review-type">Chip Repair</div>
-      </div>
-      <div class="review-card">
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="review-text">"Someone broke into my car overnight. Kelley's came out the next morning and fixed the window. Honest pricing, great work."</p>
-        <div class="reviewer">Sandra L.</div><div class="review-type">Side Window Replacement</div>
+        <p class="review-text">"Your customer quote here."</p>
+        <div class="reviewer">First Name L.</div>
+        <div class="review-type">Windshield Replacement</div>
       </div>
     </div>
+
+    -->
+
   </div>
 </section>
 
 <div class="cta-banner">
   <h2>Ready to Join Our Happy Customers?</h2>
-  <p>Get a free quote today, no commitment, no pressure.</p>
+  <p>Get a free quote today. No commitment, no pressure.</p>
   <a href="tel:4156199393" class="cta-phone">(415) 619-9393</a>
   <a href="contact.html" class="btn-dark">Request a Quote</a>
 </div>
@@ -167,4 +256,8 @@
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </div>
-  <p>© 2025 Kelley's Auto Glass LLC &nbsp;&middot;&nbsp; <a href="tel:4156199393">(415) 619-9393</a> &nbsp;&middot;&nbsp; <a href="/cdn-cgi/l/email-protection#afc4cac3c3cad6dccedadbc0c8c3cedcdcc3c3ccefc8c2cec6c381ccc0c2"><span class="
+  <p>© 2025 Kelley's Auto Glass LLC &nbsp;&middot;&nbsp; <a href="tel:4156199393">(415) 619-9393</a> &nbsp;&middot;&nbsp; <a href="mailto:kelleysautoglassllc@gmail.com">kelleysautoglassllc@gmail.com</a></p>
+</footer>
+
+</body>
+</html>
