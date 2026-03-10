@@ -1,5 +1,4 @@
-# Kelley's Auto Glass — Website Documentation
-
+# Kelley's Auto Glass 
 **Version:** 1.5.0  
 **Last Updated:** March 2026  
 **Maintained by:** Milo (Carlos Crespo)  
