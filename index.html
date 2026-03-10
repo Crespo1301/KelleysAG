@@ -5,19 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <title>Kelley's Auto Glass | Windshield Replacement &amp; Repair</title>
-
-  <!-- Open Graph / Link Preview -->
-  <meta property="og:title" content="Kelley's Auto Glass | Windshield Replacement & Repair">
-  <meta property="og:description" content="Fast, reliable windshield replacement and auto glass repair across the Bay Area. Mobile service available.">
-  <meta property="og:image" content="https://kelleysautoglass.com/images/preview-cover.jpg">
-  <meta property="og:url" content="https://kelleysautoglass.com/">
-  <meta property="og:type" content="website">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Kelley's Auto Glass | Windshield Replacement & Repair">
-  <meta name="twitter:description" content="Fast, reliable windshield replacement and auto glass repair across the Bay Area. Mobile service available.">
-  <meta name="twitter:image" content="https://kelleysautoglass.com/images/preview-cover.jpg">  
-    
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <style>
@@ -28,12 +15,15 @@
 
     nav { background:var(--black); position:sticky; top:0; z-index:100; padding:0 2rem; box-shadow:0 2px 16px rgba(0,0,0,.5); }
     .nav-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:70px; }
-    .nav-logo { height:50px; width:auto; display:block; }
+    .nav-logo { height:100px; width:auto; display:block; }
     .nav-links { display:flex; gap:2rem; list-style:none; }
     .nav-links a { text-decoration:none; color:rgba(255,255,255,.8); font-weight:600; font-size:.95rem; transition:color .2s; }
     .nav-links a:hover,.nav-links a.active { color:var(--orange); }
     .nav-cta { background:var(--orange)!important; color:var(--white)!important; padding:.5rem 1.3rem; border-radius:50px; font-weight:700!important; transition:background .2s!important; }
     .nav-cta:hover { background:var(--orange-dark)!important; }
+
+    .nav-toggle { display:none; background:none; border:0; cursor:pointer; padding:.4rem; margin-left:1rem; }
+    .nav-toggle-bar { display:block; width:24px; height:2px; background:var(--white); margin:5px 0; border-radius:2px; transition:transform .2s, opacity .2s; }
 
     /* ─────────────────────────────────────────────────────────
        HERO BACKGROUND IMAGE

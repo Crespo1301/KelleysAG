@@ -13,12 +13,15 @@
     body { font-family:'Nunito',sans-serif; color:var(--text); background:var(--white); }
     nav { background:var(--black); position:sticky; top:0; z-index:100; padding:0 2rem; box-shadow:0 2px 16px rgba(0,0,0,.5); }
     .nav-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:70px; }
-    .nav-logo { height:50px; width:auto; display:block; }
+    .nav-logo { height:62px; width:auto; display:block; }
     .nav-links { display:flex; gap:2rem; list-style:none; }
     .nav-links a { text-decoration:none; color:rgba(255,255,255,.8); font-weight:600; font-size:.95rem; transition:color .2s; }
     .nav-links a:hover,.nav-links a.active { color:var(--orange); }
     .nav-cta { background:var(--orange)!important; color:var(--white)!important; padding:.5rem 1.3rem; border-radius:50px; font-weight:700!important; }
     .nav-cta:hover { background:var(--orange-dark)!important; }
+
+    .nav-toggle { display:none; background:none; border:0; cursor:pointer; padding:.4rem; margin-left:1rem; }
+    .nav-toggle-bar { display:block; width:24px; height:2px; background:var(--white); margin:5px 0; border-radius:2px; transition:transform .2s, opacity .2s; }
     .page-hero { background:var(--black); color:white; padding:4rem 2rem; text-align:center; position:relative; overflow:hidden; }
     .page-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 70% 50%,rgba(249,115,22,.12) 0%,transparent 65%); pointer-events:none; }
     .page-hero h1 { font-family:'Lora',serif; font-size:clamp(2rem,4vw,3rem); margin-bottom:.8rem; position:relative; }
@@ -215,6 +218,34 @@
       submitBtn.textContent = 'Send Quote Request';
       errorMsg.style.display = 'block';
     }
+  });
+</script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+    if (!toggle || !links) return;
+
+    toggle.addEventListener('click', function () {
+      const isOpen = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    links.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('nav')) {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
   });
 </script>
 

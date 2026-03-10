@@ -13,12 +13,15 @@
     body { font-family:'Nunito',sans-serif; color:var(--text); background:var(--white); }
     nav { background:var(--black); position:sticky; top:0; z-index:100; padding:0 2rem; box-shadow:0 2px 16px rgba(0,0,0,.5); }
     .nav-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:70px; }
-    .nav-logo { height:50px; width:auto; display:block; }
+    .nav-logo { height:62px; width:auto; display:block; }
     .nav-links { display:flex; gap:2rem; list-style:none; }
     .nav-links a { text-decoration:none; color:rgba(255,255,255,.8); font-weight:600; font-size:.95rem; transition:color .2s; }
     .nav-links a:hover,.nav-links a.active { color:var(--orange); }
     .nav-cta { background:var(--orange)!important; color:var(--white)!important; padding:.5rem 1.3rem; border-radius:50px; font-weight:700!important; }
     .nav-cta:hover { background:var(--orange-dark)!important; }
+
+    .nav-toggle { display:none; background:none; border:0; cursor:pointer; padding:.4rem; margin-left:1rem; }
+    .nav-toggle-bar { display:block; width:24px; height:2px; background:var(--white); margin:5px 0; border-radius:2px; transition:transform .2s, opacity .2s; }
     .page-hero { background:var(--black); color:white; padding:4rem 2rem; text-align:center; position:relative; overflow:hidden; }
     .page-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 70% 50%,rgba(249,115,22,.12) 0%,transparent 65%); pointer-events:none; }
     .page-hero h1 { font-family:'Lora',serif; font-size:clamp(2rem,4vw,3rem); margin-bottom:.8rem; position:relative; }
@@ -107,7 +110,31 @@
     .footer-links a { color:rgba(255,255,255,.6); text-decoration:none; transition:color .2s; }
     .footer-links a:hover { color:var(--orange); }
     footer a { color:var(--orange); text-decoration:none; }
-    @media (max-width:768px) { .nav-links { display:none; } }
+    @media (max-width:768px) {
+      nav { padding:0 1rem; }
+      .nav-inner { height:78px; }
+      .nav-logo { height:58px; }
+      .nav-toggle { display:block; }
+      .nav-links {
+        display:none;
+        position:absolute;
+        top:100%;
+        left:1rem;
+        right:1rem;
+        background:var(--black);
+        border:1px solid rgba(255,255,255,.08);
+        border-radius:16px;
+        padding:1rem;
+        flex-direction:column;
+        gap:.3rem;
+        box-shadow:0 16px 36px rgba(0,0,0,.35);
+      }
+      .nav-links.open { display:flex; }
+      .nav-links li { width:100%; }
+      .nav-links a { display:block; padding:.85rem 1rem; border-radius:12px; }
+      .nav-links a:hover, .nav-links a.active { background:rgba(255,255,255,.06); }
+      .nav-cta { text-align:center; margin-top:.35rem; }
+    }
   </style>
 </head>
 <body>
@@ -127,14 +154,14 @@
 
 <div class="page-hero">
   <h1>Our Work</h1>
-  <p>Real jobs, real results. See what we have done for customers just like you.</p>
+  <p>We are currently updating this page with fresh project photos. More completed jobs will be added soon.</p>
 </div>
 
 <section>
   <div class="section-inner">
-    <div class="section-label">Recent Jobs</div>
-    <h2 class="section-title">Before &amp; After</h2>
-    <p class="section-sub">Every vehicle we work on gets the same care and attention. Here is a sample of our recent work.</p>
+    <div class="section-label">Portfolio Update</div>
+    <h2 class="section-title">New Project Photos Coming Soon</h2>
+    <p class="section-sub">We have removed the sample placeholder jobs for now and will start adding real customer work as new photos become available.</p>
 
     <!--
       PORTFOLIO CARDS
@@ -142,68 +169,9 @@
       Drop your images into the images/ folder with matching filenames,
       and they will appear automatically. No other code changes needed.
     -->
-    <div class="portfolio-grid">
-
-      <div class="portfolio-card">
-        <!-- Photo: images/job-01.jpg -->
-        <div class="portfolio-img job-01"></div>
-        <div class="portfolio-info">
-          <h3>2021 Honda Accord</h3>
-          <p>Full windshield replacement after road debris damage. OEM glass, same-day service.</p>
-          <span class="ptag">Windshield Replacement</span>
-        </div>
-      </div>
-
-      <div class="portfolio-card">
-        <!-- Photo: images/job-02.jpg -->
-        <div class="portfolio-img job-02"></div>
-        <div class="portfolio-info">
-          <h3>2019 Toyota Camry</h3>
-          <p>Rock chip repair caught early before the crack could spread. Fast turnaround, clean result.</p>
-          <span class="ptag">Chip Repair</span>
-        </div>
-      </div>
-
-      <div class="portfolio-card">
-        <!-- Photo: images/job-03.jpg -->
-        <div class="portfolio-img job-03"></div>
-        <div class="portfolio-info">
-          <h3>2020 Ford F-150</h3>
-          <p>Driver side door glass replacement after break-in. Back on the road same afternoon.</p>
-          <span class="ptag">Side Window</span>
-        </div>
-      </div>
-
-      <div class="portfolio-card">
-        <!-- Photo: images/job-04.jpg -->
-        <div class="portfolio-img job-04"></div>
-        <div class="portfolio-info">
-          <h3>2022 Chevrolet Silverado</h3>
-          <p>Mobile windshield replacement at the customer's home. No shop visit needed.</p>
-          <span class="ptag">Mobile Service</span>
-        </div>
-      </div>
-
-      <div class="portfolio-card">
-        <!-- Photo: images/job-05.jpg -->
-        <div class="portfolio-img job-05"></div>
-        <div class="portfolio-info">
-          <h3>2023 Tesla Model 3</h3>
-          <p>Full windshield replacement. Precision fit, factory seal, tested and ready to drive.</p>
-          <span class="ptag">Windshield Replacement</span>
-        </div>
-      </div>
-
-      <div class="portfolio-card">
-        <!-- Photo: images/job-06.jpg -->
-        <div class="portfolio-img job-06"></div>
-        <div class="portfolio-info">
-          <h3>2018 BMW 3 Series</h3>
-          <p>Rear windshield replacement. Factory-fit glass, perfect seal, no leaks.</p>
-          <span class="ptag">Rear Windshield</span>
-        </div>
-      </div>
-
+    <div class="reviews-placeholder" style="margin-top:3rem;">
+      <h3>Project Photos Coming Soon</h3>
+      <p>We are updating this page with real job photos and completed project highlights. Check back soon as new work is added.</p>
     </div>
   </div>
 </section>
@@ -211,33 +179,11 @@
 <section class="reviews-bg">
   <div class="section-inner">
     <div class="section-label">Customer Reviews</div>
-    <h2 class="section-title">What People Are Saying</h2>
-
-    <!--
-      REVIEWS
-      Replace the placeholder cards below with real customer reviews
-      as they come in. Each card follows the same HTML structure.
-      Delete the .reviews-placeholder block when you have real reviews ready.
-    -->
-
+    <h2 class="section-title">Reviews Coming Soon</h2>
     <div class="reviews-placeholder" style="margin-top:2rem;">
-      <h3>Real Reviews Coming Soon</h3>
-      <p>Customer reviews will appear here. Send Milo the review text and he will add them to the site.</p>
+      <h3>More Proof Is On The Way</h3>
+      <p>As more reviews and completed jobs come in, we will keep this page updated with real customer feedback and recent work.</p>
     </div>
-
-    <!-- Uncomment and fill in once real reviews are received:
-
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="review-text">"Your customer quote here."</p>
-        <div class="reviewer">First Name L.</div>
-        <div class="review-type">Windshield Replacement</div>
-      </div>
-    </div>
-
-    -->
-
   </div>
 </section>
 
@@ -258,6 +204,34 @@
   </div>
   <p>© 2025 Kelley's Auto Glass LLC &nbsp;&middot;&nbsp; <a href="tel:4156199393">(415) 619-9393</a> &nbsp;&middot;&nbsp; <a href="mailto:kelleysautoglassllc@gmail.com">kelleysautoglassllc@gmail.com</a></p>
 </footer>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+    if (!toggle || !links) return;
+
+    toggle.addEventListener('click', function () {
+      const isOpen = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    links.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('nav')) {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
