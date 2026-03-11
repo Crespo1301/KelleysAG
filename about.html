@@ -100,21 +100,13 @@
     footer a { color:var(--orange); text-decoration:none; }
     @media (max-width:768px) { .nav-links { display:none; } .about-grid { grid-template-columns:1fr; } .about-photo { min-height:300px; } }
   </style>
+  <link rel="stylesheet" href="assets/shared.css">
 </head>
-<body>
+<body data-page="about.html">
 
-<nav>
-  <div class="nav-inner">
-    <a href="index.html"><img src="logo.png" alt="Kelley's Auto Glass" class="nav-logo"></a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="about.html" class="active">About</a></li>
-      <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
-    </ul>
-  </div>
-</nav>
+<div id="site-header"></div>
+
+
 
 <div class="page-hero">
   <h1>About Kelley's Auto Glass</h1>
@@ -162,7 +154,7 @@
       <div class="value-card">
         <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
         <h3>Speed</h3>
-        <p>Your time matters. We offer same-day service and most jobs are done in under an hour.</p>
+        <p>Your time matters. We offer easily scheduled service and most jobs are done in under an hour.</p>
       </div>
       <div class="value-card">
         <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
@@ -191,12 +183,9 @@
   <a href="contact.html" class="btn-dark">Request a Quote</a>
 </div>
 
-<footer>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </div>
-  <p>© 2025 Kelley's Auto Glass LLC &nbsp;&middot;&nbsp; <a href="tel:4156199393">(415) 619-9393</a> &nbsp;&middot;&nbsp; <a href="/cdn-cgi/l/email-protection#adc6c8c1c1c8d4deccd8d9c2cac1ccdedec1c1ceedcac0ccc4c183cec2c0"><span class="
+<div id="site-footer"></div>
+
+<script src="assets/layout.js" defer></script>
+
+</body>
+</html>

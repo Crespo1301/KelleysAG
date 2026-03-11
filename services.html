@@ -51,21 +51,13 @@
     footer a { color:var(--orange); text-decoration:none; }
     @media (max-width:768px) { .nav-links { display:none; } .service-row { grid-template-columns:1fr; } }
   </style>
+  <link rel="stylesheet" href="assets/shared.css">
 </head>
-<body>
+<body data-page="services.html">
 
-<nav>
-  <div class="nav-inner">
-    <a href="index.html"><img src="logo.png" alt="Kelley's Auto Glass" class="nav-logo"></a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html" class="active">Services</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
-    </ul>
-  </div>
-</nav>
+<div id="site-header"></div>
+
+
 
 <div class="page-hero">
   <h1>Our Services</h1>
@@ -81,7 +73,7 @@
         <div>
           <h3>Windshield Replacement</h3>
           <p>A damaged windshield is more than an eyesore. It is a safety hazard. We replace windshields on all vehicle makes and models using OEM-quality glass that meets or exceeds factory standards.</p>
-          <div class="service-tags"><span class="tag">All Makes &amp; Models</span><span class="tag">OEM-Quality Glass</span><span class="tag">Same-Day Available</span><span class="tag">Warranty Included</span></div>
+          <div class="service-tags"><span class="tag">All Makes &amp; Models</span><span class="tag">OEM-Quality Glass</span><span class="tag">Easily Scheduled</span><span class="tag">Warranty Included</span></div>
         </div>
       </div>
 
@@ -123,44 +115,9 @@
   <a href="contact.html" class="btn-dark">Get a Free Quote</a>
 </div>
 
-<footer>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </div>
-  <p>© 2025 Kelley's Auto Glass LLC &nbsp;&middot;&nbsp; <a href="tel:4156199393">(415) 619-9393</a> &nbsp;&middot;&nbsp; <a href="mailto:kelleysautoglassllc@gmail.com">kelleysautoglassllc@gmail.com</a></p>
-</footer>
+<div id="site-footer"></div>
 
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const toggle = document.querySelector('.nav-toggle');
-    const links = document.querySelector('.nav-links');
-    if (!toggle || !links) return;
-
-    toggle.addEventListener('click', function () {
-      const isOpen = links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
-
-    links.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        links.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    document.addEventListener('click', function (event) {
-      if (!event.target.closest('nav')) {
-        links.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-  });
-</script>
+<script src="assets/layout.js" defer></script>
 
 </body>
 </html>

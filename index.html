@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,15 +16,12 @@
 
     nav { background:var(--black); position:sticky; top:0; z-index:100; padding:0 2rem; box-shadow:0 2px 16px rgba(0,0,0,.5); }
     .nav-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:100px; }
-    .nav-logo { height:100px; width:auto; display:block; }
+    .nav-logo { height:110px; width:auto; display:block; }
     .nav-links { display:flex; gap:2rem; list-style:none; }
     .nav-links a { text-decoration:none; color:rgba(255,255,255,.8); font-weight:600; font-size:.95rem; transition:color .2s; }
     .nav-links a:hover,.nav-links a.active { color:var(--orange); }
     .nav-cta { background:var(--orange)!important; color:var(--white)!important; padding:.5rem 1.3rem; border-radius:50px; font-weight:700!important; transition:background .2s!important; }
     .nav-cta:hover { background:var(--orange-dark)!important; }
-
-    .nav-toggle { display:none; background:none; border:0; cursor:pointer; padding:.4rem; margin-left:1rem; }
-    .nav-toggle-bar { display:block; width:24px; height:2px; background:var(--white); margin:5px 0; border-radius:2px; transition:transform .2s, opacity .2s; }
 
     /* ─────────────────────────────────────────────────────────
        HERO BACKGROUND IMAGE
@@ -35,7 +33,7 @@
     .hero {
       position:relative;
       color:var(--white);
-      padding:7rem 2rem 6rem;
+      padding:6rem 2rem 5rem;
       text-align:center;
       overflow:hidden;
       background-image:url('images/hero-bg.jpg');
@@ -129,7 +127,7 @@
     .why-visual-name { font-family:'Lora',serif; font-size:1.5rem; color:var(--white); margin-bottom:.2rem; }
     .why-visual-sub { font-size:.9rem; color:rgba(255,255,255,.55); margin-bottom:1.2rem; }
     .stat-grid { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; }
-    .stat-box { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.15); border-radius:10px; padding:1rem; text-align:center; backdrop-filter:blur(6px); }
+    .stat-box { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.15); border-radius:10px; padding:1rem; text-align:center;  justify-content: center;  backdrop-filter:blur(6px); }
     .stat-num { font-size:1.7rem; font-weight:800; color:var(--orange); }
     .stat-label { font-size:.78rem; color:rgba(255,255,255,.6); margin-top:.2rem; }
 
@@ -154,21 +152,13 @@
 
     @media (max-width:768px) { .nav-links { display:none; } .why-grid { grid-template-columns:1fr; } }
   </style>
+  <link rel="stylesheet" href="assets/shared.css">
 </head>
-<body>
+<body data-page="index.html">
 
-<nav>
-  <div class="nav-inner">
-    <a href="index.html"><img src="logo.png" alt="Kelley's Auto Glass" class="nav-logo"></a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
-    </ul>
-  </div>
-</nav>
+<div id="site-header"></div>
+
+
 
 <!-- Hero: background photo set via CSS above (images/hero-bg.jpg) -->
 <section class="hero">
@@ -184,7 +174,7 @@
 <div class="trust-bar">
   <div class="trust-bar-inner">
     <div class="trust-item"><span class="trust-dot"></span> Mobile Service Available</div>
-    <div class="trust-item"><span class="trust-dot"></span> Same-Day Appointments</div>
+    <div class="trust-item"><span class="trust-dot"></span> Easily Scheduled Appointments</div>
     <div class="trust-item"><span class="trust-dot"></span> Lifetime Warranty</div>
   </div>
 </div>
@@ -231,7 +221,7 @@
         <ul class="why-list">
           <li class="why-item">
             <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-            <div><h4>Fast Turnaround</h4><p>Most jobs are done in under an hour. Same-day service available in most areas.</p></div>
+            <div><h4>Fast Turnaround</h4><p>Most jobs are done in under an hour. Easily scheduled service available in most areas.</p></div>
           </li>
           <li class="why-item">
             <div class="why-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
@@ -257,7 +247,7 @@
           <div class="stat-grid">
             <div class="stat-box"><div class="stat-num">500+</div><div class="stat-label">Happy Customers</div></div>
             <div class="stat-box"><div class="stat-num">5&#9733;</div><div class="stat-label">Avg. Rating</div></div>
-            <div class="stat-box"><div class="stat-num">Same Day</div><div class="stat-label">Service Available</div></div>
+            <div class="stat-box"><div class="stat-num">Easily Scheduled</div><div class="stat-label">Service Available</div></div>
             <div class="stat-box"><div class="stat-num">100%</div><div class="stat-label">Satisfaction Goal</div></div>
           </div>
         </div>
@@ -296,12 +286,9 @@
   <a href="contact.html" class="btn-dark">Request a Quote Online</a>
 </div>
 
-<footer>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </div>
-  <p>© 2025 Kelley's Auto Glass LLC &nbsp;&middot;&nbsp; <a href="tel:4156199393">(415) 619-9393</a> &nbsp;&middot;&nbsp; <a href="/cdn-cgi/l/email-protection#167d737a7a736f6577636279717a7765657a7a7556717b777f7a3875797b"><span class="
+<div id="site-footer"></div>
+
+<script src="assets/layout.js" defer></script>
+
+</body>
+</html>

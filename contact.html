@@ -67,21 +67,13 @@
     footer a { color:var(--orange); text-decoration:none; }
     @media (max-width:768px) { .nav-links { display:none; } .contact-grid { grid-template-columns:1fr; } .form-row { grid-template-columns:1fr; } }
   </style>
+  <link rel="stylesheet" href="assets/shared.css">
 </head>
-<body>
+<body data-page="contact.html">
 
-<nav>
-  <div class="nav-inner">
-    <a href="index.html"><img src="logo.png" alt="Kelley's Auto Glass" class="nav-logo"></a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html" class="nav-cta active">Get a Quote</a></li>
-    </ul>
-  </div>
-</nav>
+<div id="site-header"></div>
+
+
 
 <div class="page-hero">
   <h1>Get In Touch</h1>
@@ -126,7 +118,7 @@
           <div class="cmethod-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
           <div class="cmethod-text">
             <h4>Fast Response</h4>
-            <p style="font-size:.9rem;color:var(--text);">Most quotes are turned around within a few hours. Same-day service available in most areas.</p>
+            <p style="font-size:.9rem;color:var(--text);">Most quotes are turned around within a few hours. Easily scheduled service available in most areas.</p>
           </div>
         </div>
 
@@ -171,16 +163,7 @@
   </div>
 </section>
 
-<footer>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </div>
-  <p>© 2025 Kelley's Auto Glass LLC &nbsp;&middot;&nbsp; <a href="tel:4156199393">(415) 619-9393</a> &nbsp;&middot;&nbsp; <a href="mailto:kelleysautoglassllc@gmail.com">kelleysautoglassllc@gmail.com</a></p>
-</footer>
+<div id="site-footer"></div>
 
 <script>
   const form = document.getElementById('quoteForm');
@@ -221,33 +204,7 @@
   });
 </script>
 
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const toggle = document.querySelector('.nav-toggle');
-    const links = document.querySelector('.nav-links');
-    if (!toggle || !links) return;
-
-    toggle.addEventListener('click', function () {
-      const isOpen = links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
-
-    links.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        links.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    document.addEventListener('click', function (event) {
-      if (!event.target.closest('nav')) {
-        links.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-  });
-</script>
+<script src="assets/layout.js" defer></script>
 
 </body>
 </html>

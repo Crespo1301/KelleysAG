@@ -1,0 +1,50 @@
+/* Shared layout enhancements: reusable header/footer + mobile nav */
+.nav-inner { position: relative; }
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: .4rem;
+  margin-left: 1rem;
+}
+.nav-toggle-bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--white);
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: transform .2s, opacity .2s;
+}
+
+@media (max-width:768px) {
+  .nav-toggle { display: block; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--black);
+    box-shadow: 0 14px 30px rgba(0,0,0,.3);
+    border-top: 1px solid rgba(255,255,255,.08);
+    z-index: 150;
+  }
+  .nav-links.open { display: flex !important; }
+  .nav-links li { width: 100%; }
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 1rem 2rem;
+    border-top: 1px solid rgba(255,255,255,.06);
+  }
+  .nav-links .nav-cta {
+    margin: 1rem 2rem 1.25rem;
+    display: inline-block;
+    width: auto;
+    text-align: center;
+  }
+}
