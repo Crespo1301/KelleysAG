@@ -1,0 +1,5 @@
+.env.ai.local
+.mcp.json
+.agents/skills/
+.claude/skills/
+*.zip

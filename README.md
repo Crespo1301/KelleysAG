@@ -7,6 +7,21 @@
 
 ---
 
+## Role In The Business
+
+- This is a real maintained client site and an active featured project in `Portfolio/src/data/projects.ts`.
+- It is one of the clearest proof points for local-service lead-generation work.
+- Treat it as production client property, not a mockup.
+
+## Shared Docs
+
+- `AGENTS.md`
+- `CLAUDE.md`
+- `AI-WORKFLOW.md`
+- `SECURITY-CHECKLIST.md`
+
+---
+
 ## Company Overview
 
 | Field | Detail |
@@ -70,10 +85,24 @@ Both fonts are loaded from Google Fonts via a single `<link>` tag in each page's
 
 Kelley's Auto Glass communicates with warmth, confidence, and zero pretension. The tone is that of a knowledgeable friend rather than a corporate service provider. Key principles:
 
-- **Direct** — say what needs to be said in as few words as possible
-- **Honest** — no upsells, no jargon, no runaround
-- **Reassuring** — customers are often stressed; the copy acknowledges that and provides calm clarity
-- **Local** — always reference the Bay Area, specific cities, and the owner-operated nature of the business
+- **Direct** - say what needs to be said in as few words as possible
+- **Honest** - no upsells, no jargon, no runaround
+- **Reassuring** - customers are often stressed; the copy acknowledges that and provides calm clarity
+- **Local** - always reference the Bay Area, specific cities, and the owner-operated nature of the business
+
+---
+
+## Local Workflow
+
+This repo is a static site. Open it through a local server when you need to test cross-page behavior:
+
+```bash
+python3 -m http.server 4173
+```
+
+Then open `http://localhost:4173`.
+
+Before push or launch, run `SECURITY-CHECKLIST.md` with extra attention on the contact form endpoint, public assets, and domain or DNS assumptions.
 
 ---
 
@@ -81,22 +110,22 @@ Kelley's Auto Glass communicates with warmth, confidence, and zero pretension. T
 
 ```
 KelleysAG/
-├── index.html          Homepage
-├── services.html       Services detail page
-├── portfolio.html      Work gallery and customer reviews
-├── about.html          Brand story and values
-├── contact.html        Quote request form and contact info
-├── logo.png            Brand logo (navbar)
-├── favicon.svg         Browser tab icon (derived from logo)
-└── images/             Photo assets (see Image Guide below)
-    ├── hero-bg.jpg     Hero section background photo
-    ├── owner.jpg       Owner portrait (homepage and about page)
-    ├── job-01.jpg      Portfolio card 1 (Honda Accord)
-    ├── job-02.jpg      Portfolio card 2 (Toyota Camry)
-    ├── job-03.jpg      Portfolio card 3 (Ford F-150)
-    ├── job-04.jpg      Portfolio card 4 (Chevrolet Silverado)
-    ├── job-05.jpg      Portfolio card 5 (Tesla Model 3)
-    └── job-06.jpg      Portfolio card 6 (BMW 3 Series)
+|-- index.html          Homepage
+|-- services.html       Services detail page
+|-- portfolio.html      Work gallery and customer reviews
+|-- about.html          Brand story and values
+|-- contact.html        Quote request form and contact info
+|-- logo.png            Brand logo (navbar)
+|-- favicon.svg         Browser tab icon (derived from logo)
+`-- images/             Photo assets (see Image Guide below)
+    |-- hero-bg.jpg     Hero section background photo
+    |-- owner.jpg       Owner portrait (homepage and about page)
+    |-- job-01.jpg      Portfolio card 1 (Honda Accord)
+    |-- job-02.jpg      Portfolio card 2 (Toyota Camry)
+    |-- job-03.jpg      Portfolio card 3 (Ford F-150)
+    |-- job-04.jpg      Portfolio card 4 (Chevrolet Silverado)
+    |-- job-05.jpg      Portfolio card 5 (Tesla Model 3)
+    `-- job-06.jpg      Portfolio card 6 (BMW 3 Series)
 ```
 
 ---
@@ -133,12 +162,12 @@ Each portfolio card on the Portfolio page loads its photo via a CSS class. Updat
 
 | File | Card |
 |---|---|
-| `job-01.jpg` | 2021 Honda Accord — Windshield Replacement |
-| `job-02.jpg` | 2019 Toyota Camry — Chip Repair |
-| `job-03.jpg` | 2020 Ford F-150 — Side Window |
-| `job-04.jpg` | 2022 Chevrolet Silverado — Mobile Service |
-| `job-05.jpg` | 2023 Tesla Model 3 — Windshield Replacement |
-| `job-06.jpg` | 2018 BMW 3 Series — Rear Windshield |
+| `job-01.jpg` | 2021 Honda Accord - Windshield Replacement |
+| `job-02.jpg` | 2019 Toyota Camry - Chip Repair |
+| `job-03.jpg` | 2020 Ford F-150 - Side Window |
+| `job-04.jpg` | 2022 Chevrolet Silverado - Mobile Service |
+| `job-05.jpg` | 2023 Tesla Model 3 - Windshield Replacement |
+| `job-06.jpg` | 2018 BMW 3 Series - Rear Windshield |
 
 | Spec | Recommendation |
 |---|---|
@@ -160,15 +189,15 @@ Each portfolio card on the Portfolio page loads its photo via a CSS class. Updat
 
 ### Deployment Workflow
 
-Every push to the `main` branch on GitHub triggers an automatic redeploy on Netlify. There is no build step — the site is plain HTML and deploys as-is.
+Every push to the `main` branch on GitHub triggers an automatic redeploy on Netlify. There is no build step, the site is plain HTML and deploys as-is.
 
 ```
 Edit files locally
-      ↓
+      |
 git add .
 git commit -m "describe the change"
 git push origin main
-      ↓
+      |
 Netlify auto-deploys within 30 seconds
 ```
 
@@ -186,27 +215,31 @@ Netlify auto-deploys within 30 seconds
 
 The quote request form on `contact.html` uses [Formspree](https://formspree.io) to route submissions to `kelleysautoglassllc@gmail.com`.
 
-**Current status:** Pending activation. The form action contains a placeholder (`YOUR_FORMSPREE_ID`) that must be replaced before the form goes live.
+**Current status:** Configured. The live form action in `contact.html` is:
 
-### Activation Steps
+```html
+<form id="quoteForm" action="https://formspree.io/f/maqpnekv" method="POST">
+```
+
+### Update Or Rotate The Form Endpoint
 
 1. Go to [formspree.io](https://formspree.io) and create a free account using the business Gmail
-2. Create a new form and connect it to `kelleysautoglassllc@gmail.com`
-3. Copy the form ID (looks like `xpwzgkrj`)
+2. Create or open the form connected to `kelleysautoglassllc@gmail.com`
+3. Copy the form ID if the endpoint needs to change
 4. Open `contact.html` and find this line:
 
 ```html
-<form id="quoteForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+<form id="quoteForm" action="https://formspree.io/f/maqpnekv" method="POST">
 ```
 
-5. Replace `YOUR_FORMSPREE_ID` with the actual ID:
+5. Replace `maqpnekv` with the new ID if rotating:
 
 ```html
 <form id="quoteForm" action="https://formspree.io/f/xpwzgkrj" method="POST">
 ```
 
-6. Also delete the yellow setup notice block (the `<div id="setupNotice">` element)
-7. Push to GitHub — Netlify deploys automatically
+6. Submit a test quote request before pushing
+7. Push to GitHub, Netlify deploys automatically
 
 ---
 
@@ -220,7 +253,7 @@ The following items are still needed from the client and will be added as they a
 | Owner portrait | Homepage, About | Pending |
 | Job photos (6 total) | Portfolio cards | Pending |
 | Real customer reviews (3+) | Portfolio page | Pending |
-| Formspree ID | Contact form | Pending |
+| Formspree ID | Contact form | Configured |
 | Business hours confirmation | Contact page | Assumed Mon-Sat 8am-6pm |
 | Years in business | About page | Pending |
 | Certifications or credentials | About page | Pending |
