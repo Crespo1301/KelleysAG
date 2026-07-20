@@ -3,3 +3,6 @@
 .agents/skills/
 .claude/skills/
 *.zip
+
+# Local browser QA screenshots
+.visual-checks/
