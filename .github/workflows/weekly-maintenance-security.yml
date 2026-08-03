@@ -28,6 +28,7 @@ jobs:
           test -f assets/layout.js
           grep -RIn "AKIA\\|BEGIN .*PRIVATE KEY\\|SUPABASE_SERVICE_ROLE\\|STRIPE_SECRET\\|RESEND_API_KEY" . \
             --exclude-dir=.git \
+            --exclude-dir=.github \
             --exclude-dir=.code-review-graph \
             --exclude=.mcp.json \
             --exclude=.env.ai.local \
